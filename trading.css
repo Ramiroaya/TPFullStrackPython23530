@@ -1,0 +1,37 @@
+*{
+    background-color: rgb(197, 184, 206);
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER */
+
+.titulo{
+    text-align: center;
+    padding: 50px 0;
+	width: 90%;
+	max-width: 1000px;
+	margin: auto;
+}
+
+.contenedor-tema{
+    display: flex;
+	justify-content: space-evenly;
+}
+
+.foto-pag-trading{
+    width: 40%;
+}
+
+.contenido-tema{
+    margin-bottom: 15px;
+	padding: 5px;
+    color: black;
+    border-radius: 50%;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	padding: 2px;
+	margin-right: 5px;
+    text-align: justify;
+}
