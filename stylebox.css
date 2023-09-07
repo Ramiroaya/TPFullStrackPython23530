@@ -98,3 +98,6 @@ body {
     color: #8F7CEC;
     text-decoration: none;
 }
+a:visited{
+    color:#CBBDDB;
+}
