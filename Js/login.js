@@ -9,7 +9,7 @@ function loginCheck(userName, password, registros) {
             return true;
         } else {
             return false;
-         }
+        }
     }
 }
 
