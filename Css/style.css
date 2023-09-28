@@ -25,6 +25,7 @@ header{
 	width: 100%;
 	height: 400px;
 	position: relative;
+	background-color: #ccc;
 }
 
 nav{
@@ -128,6 +129,10 @@ header .textos-header{
 	height: 100%;
 	object-fit: cover;
 	display: block;
+}
+
+.imagen-port p{
+	color: rgb(0, 0, 0);
 }
 
 .zoom:hover{

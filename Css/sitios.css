@@ -1,0 +1,37 @@
+/*SITIOS*/
+*{
+    text-align: center;
+
+}
+.cards{
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.cards .card{
+	background: #9579a8;
+	display: flex;
+	width: 46%;
+	height: 200px;
+	justify-content: space-evenly;
+	border-radius: 5px;
+}
+
+.cards .card img{
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border: 3px solid white;
+	border-radius: 50px;
+	display: block;
+}
+
+.cards .card  .contenido-texto-card{
+	width: 60%;
+	color: white;
+}
+
+.cards .card  .contenido-texto-card p{
+	font-weight: 300;
+	padding-top: 5px;
+}
