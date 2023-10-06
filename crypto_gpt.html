@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Crypto Price Comparison</title>
+    <style>
+        /* Your CSS styles here */
+    </style>
+</head>
+<body>
+    <h1>Real-Time Cryptocurrency Price Comparison</h1>
+
+    <div class="container">
+        <label for="cryptoSelect">Select Cryptocurrencies to Compare: </label>
+        <select id="cryptoSelect" multiple>
+            <option value="bitcoin">Bitcoin</option>
+            <option value="ethereum">Ethereum</option>
+            <option value="ripple">Ripple (XRP)</option>
+            <option value="litecoin">Litecoin</option>
+            <option value="cardano">Cardano (ADA)</option>
+            <!-- Add more cryptocurrency options as needed -->
+        </select>
+
+        <button onclick="comparePrices()">Compare</button>
+
+        <div id="priceDisplay">
+            <!-- Price comparison results will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        function comparePrices() {
+            const selectedCryptos = Array.from(document.getElementById("cryptoSelect").selectedOptions).map(option => option.value);
+
+            fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${selectedCryptos.join(',')}&vs_currencies=usd`)
+                .then(response => response.json())
+                .then(data => {
+                    const priceDisplay = document.getElementById("priceDisplay");
+                    priceDisplay.innerHTML = "";
+
+                    selectedCryptos.forEach(crypto => {
+                        const priceInUSD = data[crypto].usd;
+                        priceDisplay.innerHTML += `<p>${crypto.toUpperCase()} Price: $${priceInUSD}</p>`;
+                    });
+                })
+                .catch(error => {
+                    console.error("Error fetching data: ", error);
+                });
+        }
+
+        // Periodically update prices every 30 seconds (adjust as needed)
+        setInterval(comparePrices, 30000);
+        
+        // Initial price comparison when the page loads
+        comparePrices();
+    </script>
+</body>
+</html>
