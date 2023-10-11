@@ -25,7 +25,7 @@ header{
 	width: 100%;
 	height: 400px;
 	position: relative;
-	background-color: #ccc;
+	background-color: #8F7CEC;
 }
 
 nav{
@@ -173,7 +173,7 @@ header .textos-header{
 }
 
 .servicio-ind h3{
-	color: rgb(56, 110, 110);
+	color: #af20d3;
 	margin: 10px 0;
 }
 
@@ -187,7 +187,7 @@ header .textos-header{
 /*FOOTER*/
 
 footer{
-	background: #414141;
+	background-color: #8F7CEC;
 	padding: 60px 0 30px 0;
 	margin: auto;
 	overflow: hidden;
@@ -199,7 +199,7 @@ footer{
 	justify-content: space-evenly;
 	margin: auto;
 	padding-bottom: 50px;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #8F7CEC;
 }
 
 .content-footer{
@@ -207,18 +207,18 @@ footer{
 }
 
 .content-footer h4{
-	color: white;
+	color: black;
 	border-bottom: 3px solid #af20d3;
 	padding-bottom: 5px;
 	margin-bottom: 10px;
 }
 
 .content-footer p{
-	color: white;
+	color: black;
 }
 
 .titulo-final{
-	color: white;
+	color: black;
 	text-align: center;
 	font-size: 24px;
 	margin: 20px 0 0 0;

@@ -8,6 +8,7 @@
 	<meta charset="utf-8">
 	<meta name="viewdivort" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" tydive="text/css" href="./Css/stylearb.css">
+    <link rel="stylesheet" href="Css/arbitraje.css">
 	<link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
 	<title>Arbitraje</title>
 
@@ -28,8 +29,7 @@
 		
         <section >
 			<h1>SECCION DE ARBITRAJE</h1>
-            
-		</section>
+        </section>
 
 	</header>
 
@@ -42,19 +42,15 @@
     <p>Precios en tiempo real de las cryptodivisas mas conocidas</p>
     <div class="regresiva" id="Timer" title="Los precios de las cryptos se actualizan cada 30segundos"></div>
     <script>regresiva()</script>
- 
- 
-    
- 
+
     <br>
+    <nav class="precios">
     <button class="crypto-nav">
         <img src="img/btc.png" alt="" class="icon-crypto-nav">
         <span>Bitcoin:</span>   
         <script>fetchCryptoPrice("bitcoin", "bitcoinPrice");</script>
         <span id="bitcoinPrice">$Loading...</span>
-
     </button>
-
     <button class="crypto-nav">
         <img src="img/eth.png" alt="" class="icon-crypto-nav">
         <span>Ethereum:</span>
@@ -62,7 +58,6 @@
         <span id="ethereumPrice">$Loading...</span>
     </button >
 
-    
     <button class="crypto-nav">
         <img src="img/matic.png" alt="" class="icon-crypto-nav">
         <span>Matic:</span>
@@ -135,6 +130,7 @@
         <script>fetchCryptoPrice("uniswap", "uniswapPrice");</script>
         <span id="uniswapPrice">$Loading...</span>
     </button>
+    </nav>
 </div>
 
 <!--
@@ -186,12 +182,14 @@
 </form> -->
 
 </section >
- <!--Primer grafico de crypto-->  
+<!--Primer grafico de crypto-->  
 <!---Agregado de canva-->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <div class="contenedor-cartas">
 <!--  -->
+<nav> 
 <p>Selecciona la crypto cuyo grafico deseas analizar!</p>
+</nav>
 <br>
 <label for="cryptoSelect">Mostrar grafico de:</label>
 <select id="cryptoSelect">
@@ -235,7 +233,9 @@
 <!--<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>-->
 <div class="contenedor-cartas">
 <!--  -->
+<nav>
 <p>Selecciona otra crypto para realizar comparaciones en tiempo real!</p>
+</nav>
 <br>
 <label for="cryptoSelect2">Mostrar grafico de:</label>
 <select id="cryptoSelect2">
