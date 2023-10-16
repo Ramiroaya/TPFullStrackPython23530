@@ -1,143 +1,142 @@
-
 <script src="Js/arbitraje.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewdivort" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" tydive="text/css" href="./Css/stylearb.css">
-	<link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
-	<title>Arbitraje</title>
+    <meta charset="utf-8">
+    <meta name="viewdivort" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" tydive="text/css" href="./Css/stylearb.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
+    <title>Arbitraje</title>
 
     <script></script>
 </head>
 
 <body>
-	<header>
-		<div>
-			<nav>
-				<a href="index.html">Inicio</a>
-				<a href="Trading.html">Trading</a>
-				<a href="arbitraje.html">Arbitraje</a>
-				<a href="sesion.html">Sesion</a>
-				<a href="registro.html">Registro</a>
-			</nav>
-		</div>
-		
-        <section >
-			<h1>SECCION DE ARBITRAJE</h1>
-            
-		</section>
+    <header>
+        <div class="nav-arbitraje">
+            <nav>
+                <a href="index.html">Inicio</a>
+                <a href="Trading.html">Trading</a>
+                <a href="arbitraje.html">Arbitraje</a>
+                <a href="sesion.html">Sesion</a>
+                <a href="registro.html">Registro</a>
+            </nav>
+        </div>
 
-	</header>
+        <section>
+            <h1>SECCION DE ARBITRAJE</h1>
 
-<section> 
+        </section>
 
-<!-- Navegacion de cryptos conocidas -->
+    </header>
+
+    <section>
+
+        <!-- Navegacion de cryptos conocidas -->
 
 
-<div class="crypto-nav-cont">
-    <p>Precios en tiempo real de las cryptodivisas mas conocidas</p>
-    <div class="regresiva" id="Timer" title="Los precios de las cryptos se actualizan cada 30segundos"></div>
-    <script>regresiva()</script>
- 
- 
-    
- 
-    <br>
-    <button class="crypto-nav">
-        <img src="img/btc.png" alt="" class="icon-crypto-nav">
-        <span>Bitcoin:</span>   
-        <script>fetchCryptoPrice("bitcoin", "bitcoinPrice");</script>
-        <span id="bitcoinPrice">$Loading...</span>
+        <div class="crypto-nav-cont">
+            <p>Precios en tiempo real de las cryptodivisas mas conocidas</p>
+            <div class="regresiva" id="Timer" title="Los precios de las cryptos se actualizan cada 30segundos"></div>
+            <script>regresiva()</script>
 
-    </button>
 
-    <button class="crypto-nav">
-        <img src="img/eth.png" alt="" class="icon-crypto-nav">
-        <span>Ethereum:</span>
-        <script>fetchCryptoPrice("ethereum", "ethereumPrice");</script>
-        <span id="ethereumPrice">$Loading...</span>
-    </button >
 
-    
-    <button class="crypto-nav">
-        <img src="img/matic.png" alt="" class="icon-crypto-nav">
-        <span>Matic:</span>
-        <script>fetchCryptoPrice("matic-network", "matic-networkPrice");</script>
-        <span id="matic-networkPrice">$Loading...</span>
-    </button>
 
-    
-    <button class="crypto-nav">
-        <img src="img/ada.png" alt="" class="icon-crypto-nav">
-        <span>Cardano:</span>
-        <script>fetchCryptoPrice("cardano", "cardanoPrice");</script>
-        <span id="cardanoPrice">$Loading...</span>
-    </button>
+            <br>
+            <button class="crypto-nav">
+                <img src="img/btc.png" alt="" class="icon-crypto-nav">
+                <span>Bitcoin:</span>
+                <script>fetchCryptoPrice("bitcoin", "bitcoinPrice");</script>
+                <span id="bitcoinPrice">$Loading...</span>
 
-    
-    <button class="crypto-nav">
-        <img src="img/dot.png" alt="" class="icon-crypto-nav">
-        <span>Polkadot:</span>
-        <script>fetchCryptoPrice("polkadot", "polkadotPrice");</script>
-        <span id="polkadotPrice">$Loading...</span>
-    </button>
+            </button>
 
-    <button class="crypto-nav">
-        <img src="img/doge.png" alt="" class="icon-crypto-nav">
-        <span>DogeCoin</span>
-        <script>fetchCryptoPrice("dogecoin", "dogecoinPrice");</script>
-        <span id="dogecoinPrice">$Loading...</span>
-    </button>
-    
-    
-    <button class="crypto-nav">
-        <img src="img/bnb.png" alt="" class="icon-crypto-nav">
-        <span>Binance BSD:</span>
-        <script>fetchCryptoPrice("binancecoin", "binancecoinPrice");</script>
-        <span id="binancecoinPrice">$Loading...</span>
-    </button>
+            <button class="crypto-nav">
+                <img src="img/eth.png" alt="" class="icon-crypto-nav">
+                <span>Ethereum:</span>
+                <script>fetchCryptoPrice("ethereum", "ethereumPrice");</script>
+                <span id="ethereumPrice">$Loading...</span>
+            </button>
 
-    <button class="crypto-nav">
-        <img src="img/dai.png" alt="" class="icon-crypto-nav">
-        <span>DAI:</span>
-        <script>fetchCryptoPrice("dai", "daiPrice");</script>
-        <span id="daiPrice">$Loading...</span>
-    </button>
 
-    <button class="crypto-nav">
-        <img src="img/usdt.png" alt="" class="icon-crypto-nav">
-        <span>USDT:</span>
-        <script>fetchCryptoPrice("tether", "tetherPrice");</script>
-        <span id="tetherPrice">$Loading...</span>
-    </button>
+            <button class="crypto-nav">
+                <img src="img/matic.png" alt="" class="icon-crypto-nav">
+                <span>Matic:</span>
+                <script>fetchCryptoPrice("matic-network", "matic-networkPrice");</script>
+                <span id="matic-networkPrice">$Loading...</span>
+            </button>
 
-    <button class="crypto-nav">
-        <img src="img/usdc.png" alt="" class="icon-crypto-nav">
-        <span>USDC:</span>
-        <script>fetchCryptoPrice("usd-coin", "usd-coinPrice");</script>
-        <span id="usd-coinPrice">$Loading...</span>
-    </button>
 
-    <button class="crypto-nav">
-        <img src="img/cake.png" alt="" class="icon-crypto-nav">
-        <span>Cake</span>
-        <script>fetchCryptoPrice("pancakeswap-token", "pancakeswap-tokenPrice");</script>
-        <span id="pancakeswap-tokenPrice">$Loading...</span>
-    </button>
+            <button class="crypto-nav">
+                <img src="img/ada.png" alt="" class="icon-crypto-nav">
+                <span>Cardano:</span>
+                <script>fetchCryptoPrice("cardano", "cardanoPrice");</script>
+                <span id="cardanoPrice">$Loading...</span>
+            </button>
 
-    <button class="crypto-nav">
-        <img src="img/uni.png" alt="" class="icon-crypto-nav">
-        <span>Uni:</span>
-        <script>fetchCryptoPrice("uniswap", "uniswapPrice");</script>
-        <span id="uniswapPrice">$Loading...</span>
-    </button>
-</div>
 
-<!--
+            <button class="crypto-nav">
+                <img src="img/dot.png" alt="" class="icon-crypto-nav">
+                <span>Polkadot:</span>
+                <script>fetchCryptoPrice("polkadot", "polkadotPrice");</script>
+                <span id="polkadotPrice">$Loading...</span>
+            </button>
+
+            <button class="crypto-nav">
+                <img src="img/doge.png" alt="" class="icon-crypto-nav">
+                <span>DogeCoin</span>
+                <script>fetchCryptoPrice("dogecoin", "dogecoinPrice");</script>
+                <span id="dogecoinPrice">$Loading...</span>
+            </button>
+
+
+            <button class="crypto-nav">
+                <img src="img/bnb.png" alt="" class="icon-crypto-nav">
+                <span>Binance BSD:</span>
+                <script>fetchCryptoPrice("binancecoin", "binancecoinPrice");</script>
+                <span id="binancecoinPrice">$Loading...</span>
+            </button>
+
+            <button class="crypto-nav">
+                <img src="img/dai.png" alt="" class="icon-crypto-nav">
+                <span>DAI:</span>
+                <script>fetchCryptoPrice("dai", "daiPrice");</script>
+                <span id="daiPrice">$Loading...</span>
+            </button>
+
+            <button class="crypto-nav">
+                <img src="img/usdt.png" alt="" class="icon-crypto-nav">
+                <span>USDT:</span>
+                <script>fetchCryptoPrice("tether", "tetherPrice");</script>
+                <span id="tetherPrice">$Loading...</span>
+            </button>
+
+            <button class="crypto-nav">
+                <img src="img/usdc.png" alt="" class="icon-crypto-nav">
+                <span>USDC:</span>
+                <script>fetchCryptoPrice("usd-coin", "usd-coinPrice");</script>
+                <span id="usd-coinPrice">$Loading...</span>
+            </button>
+
+            <button class="crypto-nav">
+                <img src="img/cake.png" alt="" class="icon-crypto-nav">
+                <span>Cake</span>
+                <script>fetchCryptoPrice("pancakeswap-token", "pancakeswap-tokenPrice");</script>
+                <span id="pancakeswap-tokenPrice">$Loading...</span>
+            </button>
+
+            <button class="crypto-nav">
+                <img src="img/uni.png" alt="" class="icon-crypto-nav">
+                <span>Uni:</span>
+                <script>fetchCryptoPrice("uniswap", "uniswapPrice");</script>
+                <span id="uniswapPrice">$Loading...</span>
+            </button>
+        </div>
+
+        <!--
 <form action="">
     <fieldset>
         <legend>Par de abitraje</legend>
@@ -185,94 +184,94 @@
     </fieldset>
 </form> -->
 
-</section >
- <!--Primer grafico de crypto-->  
-<!---Agregado de canva-->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<div class="contenedor-cartas">
-<!--  -->
-<p>Selecciona la crypto cuyo grafico deseas analizar!</p>
-<br>
-<label for="cryptoSelect">Mostrar grafico de:</label>
-<select id="cryptoSelect">
-    <option value="bitcoin">Bitcoin</option>
-    <option value="ethereum">Ethereum</option>
-    <option value="usd-coin">USDC</option>
-    <option value="dai">DAI</option>
-    <option value="polkadot">DOT</option>
-    <option value="binancecoin">BNB</option>
-    <option value="tether">USDT</option>
-    <option value="pancakeswap-token">CAKE</option>
-    <option value="uniswap">UNI</option>
-    <option value="dogecoin">dogecoin</option>
-    <option value="cardano">ADA</option>
-    <option value="matic-network">MATIC</option>
-    
-</select>
-<span title="(ingresar cantidad de dias a graficar)"> Span temporal :</span>
-<label for="dias"></label>
-<select id="dias">
-    <option value="1">ultimo dia</option>
-    <option value="2">ultimos 2 dias</option>
-    <option value="7">ultimos 7 dias</option>
-    <option value="14">ultimos 14 dias</option>
-    <option value="30">ultimos 30 dias </option>
-    <option value="60">ultimos 60 dias</option>
-</select>
+    </section>
+    <!--Primer grafico de crypto-->
+    <!---Agregado de canva-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <div class="contenedor-cartas">
+        <!--  -->
+        <p>Selecciona la crypto cuyo grafico deseas analizar!</p>
+        <br>
+        <label for="cryptoSelect">Mostrar grafico de:</label>
+        <select id="cryptoSelect">
+            <option value="bitcoin">Bitcoin</option>
+            <option value="ethereum">Ethereum</option>
+            <option value="usd-coin">USDC</option>
+            <option value="dai">DAI</option>
+            <option value="polkadot">DOT</option>
+            <option value="binancecoin">BNB</option>
+            <option value="tether">USDT</option>
+            <option value="pancakeswap-token">CAKE</option>
+            <option value="uniswap">UNI</option>
+            <option value="dogecoin">dogecoin</option>
+            <option value="cardano">ADA</option>
+            <option value="matic-network">MATIC</option>
 
-<!-- Create a button to display the selected cryptocurrency's chart -->
-<button onclick="displayChart()">Graficar</button>
+        </select>
+        <span title="(ingresar cantidad de dias a graficar)"> Span temporal :</span>
+        <label for="dias"></label>
+        <select id="dias">
+            <option value="1">ultimo dia</option>
+            <option value="2">ultimos 2 dias</option>
+            <option value="7">ultimos 7 dias</option>
+            <option value="14">ultimos 14 dias</option>
+            <option value="30">ultimos 30 dias </option>
+            <option value="60">ultimos 60 dias</option>
+        </select>
 
-</div>
+        <!-- Create a button to display the selected cryptocurrency's chart -->
+        <button onclick="displayChart()">Graficar</button>
 
-<div class="carta">
-<canvas id="cryptoChart" width="400" height="300"></canvas>
-</div>
-<!--Hasta aca lo del primer grafico-->
+    </div>
 
-<!--SEGUNDO GRAFICO grafico de crypto-->  
-<!---Agregado de canva-->
-<!--<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>-->
-<div class="contenedor-cartas">
-<!--  -->
-<p>Selecciona otra crypto para realizar comparaciones en tiempo real!</p>
-<br>
-<label for="cryptoSelect2">Mostrar grafico de:</label>
-<select id="cryptoSelect2">
-    <option value="bitcoin">Bitcoin</option>
-    <option value="ethereum">Ethereum</option>
-    <option value="usd-coin">USDC</option>
-    <option value="dai">DAI</option>
-    <option value="polkadot">DOT</option>
-    <option value="binancecoin">BNB</option>
-    <option value="tether">USDT</option>
-    <option value="pancakeswap-token">CAKE</option>
-    <option value="uniswap">UNI</option>
-    <option value="dogecoin">dogecoin</option>
-    <option value="cardano">ADA</option>
-    <option value="matic-network">MATIC</option>
-    
-</select>
-<span title="(ingresar cantidad de dias a graficar)"> Span temporal :</span>
-<label for="dias2"></label>
-<select id="dias2">
-    <option value="1">ultimo dia</option>
-    <option value="2">ultimos 2 dias</option>
-    <option value="7">ultimos 7 dias</option>
-    <option value="14">ultimos 14 dias</option>
-    <option value="30">ultimos 30 dias </option>
-    <option value="60">ultimos 60 dias</option>
-</select>
+    <div class="carta">
+        <canvas id="cryptoChart" width="400" height="300"></canvas>
+    </div>
+    <!--Hasta aca lo del primer grafico-->
 
-<!-- Create a button to display the selected cryptocurrency's chart -->
-<button onclick="displayChart2()">Graficar</button>
+    <!--SEGUNDO GRAFICO grafico de crypto-->
+    <!---Agregado de canva-->
+    <!--<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>-->
+    <div class="contenedor-cartas">
+        <!--  -->
+        <p>Selecciona otra crypto para realizar comparaciones en tiempo real!</p>
+        <br>
+        <label for="cryptoSelect2">Mostrar grafico de:</label>
+        <select id="cryptoSelect2">
+            <option value="bitcoin">Bitcoin</option>
+            <option value="ethereum">Ethereum</option>
+            <option value="usd-coin">USDC</option>
+            <option value="dai">DAI</option>
+            <option value="polkadot">DOT</option>
+            <option value="binancecoin">BNB</option>
+            <option value="tether">USDT</option>
+            <option value="pancakeswap-token">CAKE</option>
+            <option value="uniswap">UNI</option>
+            <option value="dogecoin">dogecoin</option>
+            <option value="cardano">ADA</option>
+            <option value="matic-network">MATIC</option>
 
-</div>
+        </select>
+        <span title="(ingresar cantidad de dias a graficar)"> Span temporal :</span>
+        <label for="dias2"></label>
+        <select id="dias2">
+            <option value="1">ultimo dia</option>
+            <option value="2">ultimos 2 dias</option>
+            <option value="7">ultimos 7 dias</option>
+            <option value="14">ultimos 14 dias</option>
+            <option value="30">ultimos 30 dias </option>
+            <option value="60">ultimos 60 dias</option>
+        </select>
 
-<div class="carta">
-<canvas id="cryptoChart2" width="400" height="300"></canvas>
-</div>
-<!--Hasta aca lo del primer grafico-->
+        <!-- Create a button to display the selected cryptocurrency's chart -->
+        <button onclick="displayChart2()">Graficar</button>
+
+    </div>
+
+    <div class="carta">
+        <canvas id="cryptoChart2" width="400" height="300"></canvas>
+    </div>
+    <!--Hasta aca lo del primer grafico-->
 
 </body>
 
