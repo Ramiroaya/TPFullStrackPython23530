@@ -20,33 +20,38 @@ function isValidPassword(password) {
 }
 
 // Evento de clic en el botón de "Enviar"
-document.getElementById("submit").addEventListener("click", function (event) {
-  event.preventDefault(); // Evita el comportamiento predeterminado del formulario
+document.addEventListener("DOMContentLoaded", function(){
+  document.getElementById("submit").addEventListener("click", function (event) {
+    event.preventDefault(); // Evita el comportamiento predeterminado del formulario
 
-  // Obtén los valores de los campos de entrada
-  const userName = document.getElementById("userName").value;
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-  const confirmPassword = document.getElementById("confirmPassword").value;
+    // Obtén los valores de los campos de entrada
+    const userName = document.getElementById("userName").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
 
-  // Verifica que el campo Usuario sea obligatorio
-  if (userName.trim() === "") {
-    alert("El nombre de usuario es obligatorio.");
-  } else if (!isValidEmail(email)) {
-    alert("El correo electrónico debe tener un formato válido.");
-  } else if (!isValidPassword(password)) {
-    alert("La contraseña debe tener al menos 6 caracteres.");
-  } else if (password !== confirmPassword) {
-    alert("Las contraseñas no coinciden. Inténtalo de nuevo.");
-  } else {
-    // Agrega el registro al array
-    agregarRegistro(userName, email, password);
-    console.log(registros);
-    alert("Registro exitoso. ¡Ahora puedes iniciar sesión!");
+    // Verifica que el campo Usuario sea obligatorio
+    if (userName.trim() === "") {
+      alert("El nombre de usuario es obligatorio.");
+    } else if (!isValidEmail(email)) {
+      alert("El correo electrónico debe tener un formato válido.");
+    } else if (!isValidPassword(password)) {
+      alert("La contraseña debe tener al menos 6 caracteres.");
+    } else if (password !== confirmPassword) {
+      alert("Las contraseñas no coinciden. Inténtalo de nuevo.");
+    } else {
+      // Agrega el registro al array
+      agregarRegistro(userName, email, password);
+      // Almacena los registros en el Local Storage
+      localStorage.setItem('registros', JSON.stringify(registros));
+      console.log(registros);
+      alert("Registro exitoso. ¡Ahora puedes iniciar sesión!");
 
-    // Restablece los valores del formulario
-    document.getElementById("registration-form").reset();
-  }
+      // Restablece los valores del formulario
+      document.getElementById("registration-form").reset();
+      window.location.href = "sesion.html";
+    }
+  });
 });
 
 
