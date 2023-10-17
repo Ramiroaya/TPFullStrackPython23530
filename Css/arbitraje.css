@@ -1,0 +1,36 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+header{
+    width: 100%;
+	height: 150px;
+	position: relative;
+	background-color: #8F7CEC;
+}
+nav a{
+    padding: 30px;
+    text-align: justify;
+}
+.crypto-nav-cont p{
+    text-align: center;
+    height: auto;
+    width: auto;
+    font-weight: 400;
+    font-size: 40px;
+}
+.precios{
+    text-align: justify;
+    padding: 5px;
+}
+.crypto-nav{
+    flex-direction: column;
+    width: 150px;
+    height: 100px;
+    padding: 10px;
+}
+nav p{
+    font-size: 40px;
+    text-align: center;
+}
