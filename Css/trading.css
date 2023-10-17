@@ -1,52 +1,283 @@
 * {
-    margin: 0;
-    padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 /* HEADER */
 header {
-    width: 100%;
-    height: 15vh;
-    background-color: #ccc;
+  width: 100%;
+	border-bottom: 1px solid gray;
+	background-color: #ccc;
+	position: fixed
 }
 
 nav {
-    text-align: right;
-    padding: 30px 50px 0 0;
+	text-align: right;
+	padding: 5px 5px;
 }
 
 nav a {
-    color: black;
-    font-weight: 800;
-    text-decoration: none;
-    margin-right: 10px;
-    font-size: 30px;
+	color: black;
+	font-weight: 800;
+	text-decoration: none;
+	margin-right: 10px;
+	font-size: 30px;
+}
+
+/*MAIN*/
+
+main {
+	background-color: rgb(197, 184, 206);
+	padding: 2.5rem;
 }
 
 .titulo {
-    text-align: center;
-    padding: 50px 0;
-    width: 90%;
-    max-width: 1000px;
-    margin: auto;
+	text-align: start;
+	font-size: 1.5rem;
+	width: 100%;
+	padding-left: 10rem;
+	/* max-width: 1000px; */
+	/* margin: auto; */
 }
+
+h3 span {
+	color: rgb(78, 78, 78);
+	font-weight: 300;
+}
+
+/* .foto-pag-trading{
+	width: 30em;
+	box-sizing: border-box;
+	background-color: lightblue;
+	position: sticky;
+	padding: 50px;
+	top: 0;
+} */
 
 .contenedor-tema {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+	display: flex;
+	padding: 20px;
+	width: 100%;
+	justify-content: center;
+	flex: 1 1 auto;
 }
 
-.foto-pag-trading {
-    width: 40%;
-    float: left; /* Alinear la imagen a la izquierda */
-    margin-right: 20px; /* Espacio entre la imagen y el párrafo */
+.contenedor-padre {
+	display: flex;
+	flex-flow: column nowrap;
+	column-gap: 5px;
+	padding: 20px;
+	border-radius: 5%;
+	border: 2px solid black;
+	background-color: rgb(226, 221, 221);
+	width: 80%;
+	/* flex: 1 1 auto; */
+	/* height: 32vw; */
+	/* justify-content: center; */
 }
 
-.contenido-tema {
-    margin-bottom: 15px;
-    padding: 5px;
-    color: black;
-    text-align: justify;
-    width: 50%; /* Ancho del párrafo para estar al lado derecho de la imagen */
+.contenedor-hijo {
+	margin: 10px;
+	padding: 10px;
+	background-color: rgb(150, 232, 179);
+	border-radius: 1.25rem;
+	/* border: 1px solid blue; */
+	/* width: 70%; */
+}
+
+.highlights-padre {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 20px;
+	border: 1px solid black;
+	border-radius: 1.25rem;
+	background-color: rgb(123, 220, 250);
+	/* flex: 1 1 auto; */
+	/* width: 75%; */
+	/* margin: 10; */
+	/* font-weight: bold; */
+	/* font-size: 1.5em; */
+}
+
+/*INFO DESTACADA*/
+
+.highlights-hijo {
+	border: 2px solid gray;
+	padding: 5px;
+	margin: 5px;
+	width: 30%;
+}
+
+.highlights-hijo h3 {
+	margin-bottom: 1.5rem;
+	padding: 0 0.25rem;
+	background-color: #f0b3ee;
+}
+
+.highlights-hijo div {
+	display: flex;
+	box-sizing: border-box;
+	justify-content: space-between;
+	align-items: center;
+	/* flex: 1 1 auto; */
+}
+
+.detalle1 {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+}
+
+
+.detalle1 span {
+	margin: 0 0.25rem;
+	font-style: italic;
+}
+
+.Visual {
+	display: inline-flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	height: 100%;
+}
+
+.Visual img {
+	margin-right: 0.4rem;
+}
+
+/*CRIPTOMONEDAS*/
+
+.detalle2 {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.CriptoHeader {
+	display: flex;
+	align-items: center;
+	border-top-left-radius: 0.2857142857rem;
+	border-top-right-radius: 0.2857142857rem;
+	background-color:rgb(150, 232, 179);
+	padding: 10px;
+	width: 100%;
+	/* border-radius: 1.25rem; */
+	/* margin-bottom: 0.5rem; */
+	/* border: 1px solid black; */
+	/* justify-content: space-between; */
+}
+
+.CriptoHeader .search-input {
+	margin-left: auto;
+	position: relative;
+}
+
+.ListaCripto {
+	border: 1px solid black;
+	border-radius: 0.2857142857rem;
+	background-color: rgb(123, 220, 250);
+	/* margin: 10px; */
+	/* padding:10px; */
+	/* width: 80%; */
+}
+
+
+table {
+	border-collapse: separate;
+	text-indent: initial;
+	width: 100%;
+	/* padding: 10px; */
+	/* border-spacing: 10px; */
+}
+
+thead {
+	display: table-header-group;
+	vertical-align: middle;
+	border-color: inherit;
+}
+
+th {
+	height: 4rem;
+	font-size: 1.25rem;
+	line-height: 1.35;
+	position: sticky;
+	top: 0;
+	padding: 10px;
+	background-color: rgb(226, 221, 221);
+	border-top-left-radius: 0.2857142857rem;
+	border-top-right-radius: 0.2857142857rem;
+	border-bottom: 1px solid rgb(90, 87, 87)
+	/* padding: 0 1.1428571429rem; */
+	/* font-weight: 500; */
+	/* color: #373D43; */
+}
+
+tbody tr {
+	cursor: pointer;
+}
+
+tbody td {
+	border-top: none;
+	padding: 5px;
+}
+
+
+.theadButton {
+	position: relative;
+	display: flex;
+	align-items: center;
+	flex: 1 1 auto;
+}
+
+.theadButton button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+/*FOOTER*/
+
+footer {
+	box-sizing: border-box;
+	background: #414141;
+	padding: 60px 0 30px 0;
+	margin: auto;
+	overflow: hidden;
+}
+
+.contenedor-footer {
+	display: flex;
+	justify-content: space-evenly;
+	width: 90%;
+	margin: auto;
+	padding-bottom: 50px;
+	border-bottom: 1px solid #ccc;
+}
+
+.content-footer {
+	text-align: center;
+}
+
+.content-footer h4 {
+	color: white;
+	border-bottom: 3px solid #af20d3;
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+}
+
+.content-footer p {
+	color: white;
+}
+
+.titulo-final {
+	color: white;
+	text-align: center;
+	font-size: 24px;
+	margin: 20px 0 0 0;
 }
