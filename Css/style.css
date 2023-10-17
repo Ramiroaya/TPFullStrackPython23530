@@ -71,7 +71,11 @@ header .textos-header{
 }
 
 .imagen-grupal{
-	width: 48%;
+	width: 340%;
+}
+
+.imagen-grupal2{
+	width: 250%;
 }
 
 .sobre-nosotros .contenido-textos{
