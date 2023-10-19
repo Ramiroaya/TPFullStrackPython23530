@@ -5,11 +5,11 @@ function regresiva(){
     var elem = document.getElementById('Timer');
     var timerId = setInterval(countdown, 1000);
 function countdown() {
-      if (timeLeft == 0) {
+    if (timeLeft == 0) {
         timeLeft=30;
         //clearTimeout(timerId);
         //document.write(`${timeLeft}`);
-       } else {
+        } else {
         elem.innerHTML = 'Actualizando en ' + timeLeft + ' segundos';
         timeLeft--;
         }

@@ -6,8 +6,8 @@
 
 /* HEADER */
 header {
-  width: 100%;
-	border-bottom: 1px solid gray;
+    width: 100%;
+	border-bottom: 1px solid #547ac0;
 	background-color: #ccc;
 	position: fixed
 }
@@ -28,7 +28,7 @@ nav a {
 /*MAIN*/
 
 main {
-	background-color: rgb(197, 184, 206);
+	background-color: #3399ff;
 	padding: 2.5rem;
 }
 
@@ -70,7 +70,7 @@ h3 span {
 	padding: 20px;
 	border-radius: 5%;
 	border: 2px solid black;
-	background-color: rgb(226, 221, 221);
+	background-color: #59b8ff;
 	width: 80%;
 	/* flex: 1 1 auto; */
 	/* height: 32vw; */
@@ -80,7 +80,7 @@ h3 span {
 .contenedor-hijo {
 	margin: 10px;
 	padding: 10px;
-	background-color: rgb(150, 232, 179);
+	background-color: #af20d3;
 	border-radius: 1.25rem;
 	/* border: 1px solid blue; */
 	/* width: 70%; */
@@ -93,7 +93,7 @@ h3 span {
 	padding: 20px;
 	border: 1px solid black;
 	border-radius: 1.25rem;
-	background-color: rgb(123, 220, 250);
+	background-color: #59b8ff;
 	/* flex: 1 1 auto; */
 	/* width: 75%; */
 	/* margin: 10; */
@@ -104,7 +104,7 @@ h3 span {
 /*INFO DESTACADA*/
 
 .highlights-hijo {
-	border: 2px solid gray;
+	border: 2px solid #af20d3;
 	padding: 5px;
 	margin: 5px;
 	width: 30%;
@@ -113,7 +113,6 @@ h3 span {
 .highlights-hijo h3 {
 	margin-bottom: 1.5rem;
 	padding: 0 0.25rem;
-	background-color: #f0b3ee;
 }
 
 .highlights-hijo div {
@@ -161,7 +160,6 @@ h3 span {
 	align-items: center;
 	border-top-left-radius: 0.2857142857rem;
 	border-top-right-radius: 0.2857142857rem;
-	background-color:rgb(150, 232, 179);
 	padding: 10px;
 	width: 100%;
 	/* border-radius: 1.25rem; */
@@ -178,7 +176,7 @@ h3 span {
 .ListaCripto {
 	border: 1px solid black;
 	border-radius: 0.2857142857rem;
-	background-color: rgb(123, 220, 250);
+	background-color: #59b8ff;
 	/* margin: 10px; */
 	/* padding:10px; */
 	/* width: 80%; */
@@ -206,7 +204,7 @@ th {
 	position: sticky;
 	top: 0;
 	padding: 10px;
-	background-color: rgb(226, 221, 221);
+	background-color: #1b79f5;
 	border-top-left-radius: 0.2857142857rem;
 	border-top-right-radius: 0.2857142857rem;
 	border-bottom: 1px solid rgb(90, 87, 87)
