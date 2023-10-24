@@ -48,11 +48,23 @@ button {
 header{
 	width: 100%;
 	position: relative;
+	display: flexbox;
+}
+
+.barra-navegacion{
+	display: flex;
+	justify-content: space-evenly;
+}
+.logo{
+	width: 15%;
+	height: 15%;
+	padding-top: 1%;
 }
 
 nav{
 	text-align: right;
-	padding: 30px 50px 0 0;
+	height: auto;
+	padding-top: 15%;
 }
 
 nav a{
@@ -65,7 +77,7 @@ nav a{
 
 header .textos-header{
 	display: flex;
-	height: 200px;
+	height: 25%;
 	width: 100%;
 	align-items: center;
 	justify-content: center;
@@ -81,8 +93,8 @@ header .textos-header{
 }
 
 .slider img{
-	width: 100px;
-	height: 100px;
+	width: 7%;
+	height: 7%;
 }
 
 /*TRAIDING*/
