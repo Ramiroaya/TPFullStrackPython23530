@@ -2,6 +2,13 @@
     box-sizing: border-box;
 }
 
+.logo{
+	width: 20%;
+	height: 20%;
+	padding-top: 3%;
+    padding-left: 10%;
+}
+
 body {
     background: #131315;
     font-family: var(--font-style);
