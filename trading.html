@@ -1,35 +1,666 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" tydive="text/css" href="trading.css">
-	
+    <link rel="stylesheet" tydive="text/css" href="css/trading.css">
     <title>Trading</title>
 </head>
 <body>
     <header>
+		<div clas="nav-trading">
+			<nav>
+				<a href="index.html">Inicio</a>
+				<a href="sitios.html">Sitios</a>
+				<a href="arbitraje.html">Arbitraje</a>
+				<a href="sesion.html">Sesion</a>
+				<a href="registro.html">Registro</a>
+			</nav>
+		</div>
+    </header>
         <section>
             <h1 class="titulo">Que es y como funciona el Trading</h1>
         </section>
-    </header>
     <main>
+        <div class="titulo">
+            <h1>Resumen de Mercados</h1>
+            <p>Todos los datos de los precios se indican en 
+                <span style="color: green;"><b>U$D</b></span>
+            </p>
+        </div>
         <section class="contenedor-tema">
-            <div>
-                <img src="img/trading2.webp" class="foto-pag-trading">
-                <div class="contenido-tema">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing 
-                        elit. Laborum architecto, quam fugit ipsam alias 
-                        magnam, sunt est autem dolore ut quaerat quod harum 
-                        deserunt quo reiciendis cupiditate. In, fuga 
-                        consequuntur.
-                    </p>
+            <div class="contenedor-padre">
+                <div class="contenedor-hijo">
+                    <div>
+                        <h2>Info Destacada</h2>
+                    </div>
+                    <div class="highlights-padre">
+                        <div class="highlights-hijo">
+                            <h3>Moneda Destacada <span>24HS</span></h3>
+                            <div>
+                                <span class="Visual">
+                                    <img height="24" src="img/btc.png" alt="BTC">
+                                    <div class="detalle1">
+                                        <strong>BTC</strong>
+                                        <span>Bitcoin</span>
+                                    </div>
+                                </span>
+                                <span>20%</span>
+                            </div>
+                            <div>
+                                <span class="Visual">
+                                    <img height="24" src="img/eth.png" alt="BTC">
+                                    <div class="detalle1">
+                                        <strong>ETH</strong>
+                                        <span>Ethereum</span>
+                                    </div>
+                                </span>
+                                <span>20%</span>
+                            </div>
+                            <div>
+                                <span class="Visual">
+                                    <img height="24" src="img/usdt.png" alt="BTC">
+                                    <div class="detalle1">
+                                        <strong>USDT</strong>
+                                        <span>Tether</span>
+                                    </div>
+                                </span>
+                                <span>0.5%</span>
+                            </div>
+                        </div>
+                        <div class="highlights-hijo">
+                            <h3>Volumen <span>24HS</span></h3>
+                            <div>
+                                <span class="Visual">
+                                    <img height="24" src="img/btc.png" alt="BTC">
+                                    <div class="detalle1">
+                                        <strong>BTC</strong>
+                                        <span>Bitcoin</span>
+                                    </div>
+                                </span>
+                                <span>$26B</span>
+                            </div>
+                            <div>
+                                <span class="Visual">
+                                    <img height="24" src="img/eth.png" alt="BTC">
+                                    <div class="detalle1">
+                                        <strong>ETH</strong>
+                                        <span>Ethereum</span>
+                                    </div>
+                                </span>
+                                <span>$8.3B</span>
+                            </div>
+                            <div>
+                                <span class="Visual">
+                                    <img height="24" src="img/usdt.png" alt="BTC">
+                                    <div class="detalle1">
+                                        <strong>USDT</strong>
+                                        <span>Tether</span>
+                                    </div>
+                                </span>
+                                <span>$43B</span>
+                            </div>
+                        </div>
+                        <div class="highlights-hijo">
+                            <h3>Capitalizacion <span>24HS</span></h3>
+                            <div>
+                                <span class="Visual">
+                                    <img height="24" src="img/btc.png" alt="BTC">
+                                    <div class="detalle1">
+                                        <strong>BTC</strong>
+                                        <span>Bitcoin</span>
+                                    </div>
+                                </span>
+                                <span>$550B</span>
+                            </div>
+                            <div>
+                                <span class="Visual">
+                                    <img height="24" src="img/eth.png" alt="BTC">
+                                    <div class="detalle1">
+                                        <strong>ETH</strong>
+                                        <span>Ethereum</span>
+                                    </div>
+                                </span>
+                                <span>$190B</span>
+                            </div>
+                            <div>
+                                <span class="Visual">
+                                    <img height="24" src="img/usdt.png" alt="BTC">
+                                    <div class="detalle1">
+                                        <strong>USDT</strong>
+                                        <span>Tether</span>
+                                    </div>
+                                </span>
+                                <span>$80B</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contenedor-hijo">
+                    <div class="CriptoHeader">
+                        <h2>Criptomonedas</h2>
+                        <div class="search-input">
+                            <input type="search" name="" id="" placeholder="Buscar activo">
+                        </div>
+                    </div>
+                    <div class="ListaCripto">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th align="left">
+                                        <div class="theadButton">
+                                            <span>Nombre</span>
+                                        </div>
+                                    </th>
+                                    <th align="left">
+                                        <div class="theadButton">
+                                            <span>Precio</span>
+                                        </div>
+                                    </th>
+                                    <th align="left">
+                                        <div class="theadButton">
+                                            <span>Cambio%</span>
+                                        </div>
+                                    </th>
+                                    <th align="left">
+                                        <div class="theadButton">
+                                            <span>Volumen 24HS</span>
+                                        </div>
+                                    </th>
+                                    <th align="left">
+                                        <div class="theadButton">
+                                            <span>Capitalización</span>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td align="left">
+                                        <span class="Visual">
+                                            <img height="32" src="img/btc.png" alt="">
+                                            <div class="detalle2">
+                                                <strong>BTC</strong>
+                                                <span>Bitcoin</span>
+                                            </div>
+                                        </span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$28,161.57</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>5,3%</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$26,41B</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$554,46B</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">
+                                        <span class="Visual">
+                                            <img height="32" src="img/eth.png" alt="">
+                                            <div class="detalle2">
+                                                <strong>ETH</strong>
+                                                <span>Ethereum</span>
+                                            </div>
+                                        </span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$1588.46</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>1.68%</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$8,3B</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$190.46B</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">
+                                        <span class="Visual">
+                                            <img height="32" src="img/usdt.png" alt="">
+                                            <div class="detalle2">
+                                                <strong>USDT</strong>
+                                                <span>Tether</span>
+                                            </div>
+                                        </span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$1.00</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>0,00%</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$46.26M</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$83.5B</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">
+                                        <span class="Visual">
+                                            <img height="32" src="img/bnb.png" alt="">
+                                            <div class="detalle2">
+                                                <strong>BNB</strong>
+                                                <span>Binance Coin</span>
+                                            </div>
+                                        </span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$212.95</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>1.92%</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$500M</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$32.44B</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">
+                                        <span class="Visual">
+                                            <img height="32" src="img/xrp.png" alt="">
+                                            <div class="detalle2">
+                                                <strong>XRP</strong>
+                                                <span>Ripple</span>
+                                            </div>
+                                        </span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$0.4912</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>1.06%</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$1.03B</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$26.43B</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">
+                                        <span class="Visual">
+                                            <img height="32" src="img/usdc.png" alt="">
+                                            <div class="detalle2">
+                                                <strong>USDC</strong>
+                                                <span>USD Coin</span>
+                                            </div>
+                                        </span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$0.9999</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>0.00%</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$4.26B</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$25.20B</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">
+                                        <span class="Visual">
+                                            <img height="32" src="img/sol.png" alt="">
+                                            <div class="detalle2">
+                                                <strong>SOL</strong>
+                                                <span>Solana</span>
+                                            </div>
+                                        </span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$23.91</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>5,47%</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$727.54M</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$9.95B</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">
+                                        <span class="Visual">
+                                            <img height="32" src="img/ada.png" alt="">
+                                            <div class="detalle2">
+                                                <strong>ADA</strong>
+                                                <span>Cardano</span>
+                                            </div>
+                                        </span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$0.2496</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>-1.11%</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$186.78M</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$8.78B</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">
+                                        <span class="Visual">
+                                            <img height="32" src="img/doge.png" alt="">
+                                            <div class="detalle2">
+                                                <strong>DOGE</strong>
+                                                <span>Dogecoin</span>
+                                            </div>
+                                        </span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$0.05977</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>-0.3%</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$254.47M</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$8.45B</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">
+                                        <span class="Visual">
+                                            <img height="32" src="img/trx.png" alt="">
+                                            <div class="detalle2">
+                                                <strong>TRX</strong>
+                                                <span>TRON</span>
+                                            </div>
+                                        </span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$28,161.57</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>1.55%</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$239.20M</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$7.89B</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">
+                                        <span class="Visual">
+                                            <img height="32" src="img/dai.png" alt="">
+                                            <div class="detalle2">
+                                                <strong>DAI</strong>
+                                                <span>Dai</span>
+                                            </div>
+                                        </span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$0.9993</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>-0.5%</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$196.98M</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$5.34B</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">
+                                        <span class="Visual">
+                                            <img height="32" src="img/matic.png" alt="">
+                                            <div class="detalle2">
+                                                <strong>MATIC</strong>
+                                                <span>Polygon</span>
+                                            </div>
+                                        </span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$0.5289</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>0.46%</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$329.51M</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$4.91B</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">
+                                        <span class="Visual">
+                                            <img height="32" src="img/LTC.png" alt="">
+                                            <div class="detalle2">
+                                                <strong>LTC</strong>
+                                                <span>Litecoin</span>
+                                            </div>
+                                        </span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$63.00</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>0,37%</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$334.14M</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$4.64B</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">
+                                        <span class="Visual">
+                                            <img height="32" src="img/dot.png" alt="">
+                                            <div class="detalle2">
+                                                <strong>DOT</strong>
+                                                <span>Polkadot</span>
+                                            </div>
+                                        </span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$3.73</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>-1.79%</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$104.72M</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$4.61B</span>
+                                    </td>
+                                </tr> 
+                                <tr>
+                                    <td align="left">
+                                        <span class="Visual">
+                                            <img height="32" src="img/BCH.png" alt="">
+                                            <div class="detalle2">
+                                                <strong>BCH</strong>
+                                                <span>Bitcoin Cash</span>
+                                            </div>
+                                        </span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$226.70</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>0.00%</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$397.21M</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$4.42B</span>
+                                    </td>
+                                </tr>                               
+                                <tr>
+                                    <td align="left">
+                                        <span class="Visual">
+                                            <img height="32" src="img/shib.png" alt="">
+                                            <div class="detalle2">
+                                                <strong>SHIB</strong>
+                                                <span>SHIBA INU</span>
+                                            </div>
+                                        </span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$0.00000706</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>-0.84%</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$130.00M</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$4.16B</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">
+                                        <span class="Visual">
+                                            <img height="32" src="img/LINK.png" alt="">
+                                            <div class="detalle2">
+                                                <strong>LINK</strong>
+                                                <span>ChainLink</span>
+                                            </div>
+                                        </span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$7.44</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>-2.03%</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$261.74M</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$4.14B</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">
+                                        <span class="Visual">
+                                            <img height="32" src="img/TUSD.png" alt="">
+                                            <div class="detalle2">
+                                                <strong>TUSD</strong>
+                                                <span>TrueUSD</span>
+                                            </div>
+                                        </span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$0.999</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>-0.04%</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$460.43M</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$3.36B</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">
+                                        <span class="Visual">
+                                            <img height="32" src="img/AVAX.png" alt="">
+                                            <div class="detalle2">
+                                                <strong>AVAX</strong>
+                                                <span>Avalanche</span>
+                                            </div>
+                                        </span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$9.29</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>-2.52%</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$131.97M</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$3.29B</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">
+                                        <span class="Visual">
+                                            <img height="32" src="img/XLM.png" alt="">
+                                            <div class="detalle2">
+                                                <strong>XLM</strong>
+                                                <span>Stellar Lumens</span>
+                                            </div>
+                                        </span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$0.1069</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>-1.66%</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$83.30M</span>
+                                    </td>
+                                    <td align="left">
+                                        <span>$2.96B</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-
         </section>
-        
     </main>
+    <footer>
+        <hr style="color: white;">
+        <div class="contenedor-footer">
+            <div class="content-footer">
+                <h4>Telefono</h4>
+                <p>0123456789</p>
+            </div>
+            <div class="content-footer">
+                <h4>Email</h4>
+                <p>ejemplo@gmail.com</p>
+            </div>
+            <div class="content-footer">
+                <h4>Ubicacion</h4>
+                <p>#######</p>
+            </div>
+        </div>
+        <h2 class="titulo-final">&copy;Full Stack Python | Codo a Codo 23530 Grupo 4</h2>
+    </footer>
 </body>
+
 </html>

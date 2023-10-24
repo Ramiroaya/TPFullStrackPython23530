@@ -1,70 +1,93 @@
 *{
-	box-sizing: border-box;
-	margin: 0;
+	margin-top: 0;
 	padding: 0;
+	box-sizing: border-box;
 }
 
-.contenedor{
+
+.crypto-nav-cont{
+	margin-left: 15%;
+	margin-right:15%;
+	margin-top:1%;
+	/*display:flex;
+	justify-content: space-between;*/
+}
+.crypto-nav{
+
+    background-color: rgb(255, 255, 255);
+    border-color:rgb(178, 174, 174) ;
+	padding: 1%;
+	border-radius: 8%;
+	scroll-snap-type: x proximity;
+
+}
+.barra{
+	background-color: #414141;
+}
+.carta{
+	
+margin-left: 15%;
+margin-right: 15%;
+margin-top: 1%;
+
+}
+
+.icon-crypto-nav{
+    width:30px; 
+    height:30px;
+
+}
+
+.contenedor-cartas{
+	margin-left: 15%;
+	margin-top: 1%;
+}
+
+
+
+
+
+.contenedor_principal{
 	padding: 60px 0;
-	width: 90%;
+	width: 100%;
 	max-width: 1000px;
 	margin: auto;
 	overflow: hidden;
+    background-color: #f4eded;
+}
+
+.regresiva{
+text-align: right;
+
+}
+.contenedor{
+	padding: 60px 0;
+	width: 100%;
+	max-width: 1000px;
+	margin: auto;
+	overflow: hidden;
+    background-color: #ebd4d4;
 }
 
 .titulo{
 	color: rgb(0, 0, 0);
 	font-size: 40px;
 	text-align: center;
-	margin-bottom: 20px;
+	margin-bottom: 60px;
 }
 
 /*HEADER*/
 
-body {
-    font-family: Arial, sans-serif;
-    transition: background-color 0.5s, color 0.5s;
-}
-
-.container {
-    text-align: right;
-    padding: 20px;
-}
-
-button {
-    background-color: #af20d3;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.dark-mode {
-    background-color: #333;
-    color: #fff;
-}
-
 header{
 	width: 100%;
-	position: relative;
-	display: flexbox;
-}
-
-.barra-navegacion{
-	display: flex;
-	justify-content: space-evenly;
-}
-.logo{
-	width: 15%;
 	height: 15%;
-	padding-top: 1%;
+	/*position: relative;*/
+	background-color: #ccc;
 }
 
 nav{
 	text-align: right;
-	height: auto;
-	padding-top: 15%;
+	padding: 30px 50px 0 0;
 }
 
 nav a{
@@ -77,7 +100,7 @@ nav a{
 
 header .textos-header{
 	display: flex;
-	height: 25%;
+	height: 430px;
 	width: 100%;
 	align-items: center;
 	justify-content: center;
@@ -93,11 +116,11 @@ header .textos-header{
 }
 
 .slider img{
-	width: 7%;
-	height: 7%;
+	width: 100px;
+	height: 100px;
 }
 
-/*TRAIDING*/
+/*SOBRE NOSOTROS*/
 
 .contenedor-temas{
 	display: flex;
@@ -105,11 +128,7 @@ header .textos-header{
 }
 
 .imagen-grupal{
-	width: 340%;
-}
-
-.imagen-grupal2{
-	width: 250%;
+	width: 48%;
 }
 
 .sobre-nosotros .contenido-textos{
@@ -161,15 +180,12 @@ header .textos-header{
 }
 
 .imagen-port img{
-	padding: 20px;
+	padding: 10px;
+	border-color: #414141;
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 	display: block;
-}
-
-.imagen-port p{
-	color: rgb(0, 0, 0);
 }
 
 .zoom:hover{
@@ -177,11 +193,39 @@ header .textos-header{
 }
 
 
-/*RESPONSABILIDAD*/
+/*CLIENTES*/
 
-.respon{
-	text-align: justify;
-	background-color: black;
+.cards{
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.cards .card{
+	background: #9579a8;
+	display: flex;
+	width: 46%;
+	height: 200px;
+	justify-content: space-evenly;
+	border-radius: 5px;
+}
+
+.cards .card img{
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border: 3px solid white;
+	border-radius: 50px;
+	display: block;
+}
+
+.cards .card  .contenido-texto-card{
+	width: 60%;
+	color: white;
+}
+
+.cards .card  .contenido-texto-card p{
+	font-weight: 300;
+	padding-top: 5px;
 }
 
 /*NUESTRO EQUIPO*/
@@ -210,7 +254,7 @@ header .textos-header{
 }
 
 .servicio-ind h3{
-	color: #af20d3;
+	color: rgb(56, 110, 110);
 	margin: 10px 0;
 }
 
@@ -224,7 +268,7 @@ header .textos-header{
 /*FOOTER*/
 
 footer{
-	background-color: #8F7CEC;
+	background: #414141;
 	padding: 60px 0 30px 0;
 	margin: auto;
 	overflow: hidden;
@@ -236,7 +280,7 @@ footer{
 	justify-content: space-evenly;
 	margin: auto;
 	padding-bottom: 50px;
-	border-bottom: 1px solid #8F7CEC;
+	border-bottom: 1px solid #ccc;
 }
 
 .content-footer{
@@ -244,18 +288,18 @@ footer{
 }
 
 .content-footer h4{
-	color: black;
+	color: white;
 	border-bottom: 3px solid #af20d3;
 	padding-bottom: 5px;
 	margin-bottom: 10px;
 }
 
 .content-footer p{
-	color: black;
+	color: white;
 }
 
 .titulo-final{
-	color: black;
+	color: white;
 	text-align: center;
 	font-size: 24px;
 	margin: 20px 0 0 0;
