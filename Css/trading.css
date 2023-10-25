@@ -20,7 +20,7 @@ button {
     background-color: #af20d3;
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 5px 20px;
     cursor: pointer;
     border-radius: 5px;
 	text-align: right;
@@ -32,9 +32,9 @@ button {
 }
 
 header{
-	width: 100%;
+	width: 85%;
 	position: relative;
-	display: flexbox;
+	display: flex;
 }
 
 .barra-navegacion{
@@ -45,7 +45,7 @@ header{
 	width: 70%;
 	height: 80%;
 	padding-top: 10%;
-	padding-left: 20%;
+	padding-left: 30%;
 }
 
 nav{
@@ -119,7 +119,7 @@ h3 span {
 	padding: 20px;
 	border-radius: 5%;
 	border: 2px solid black;
-	background-color: #59b8ff;
+	background-color: #87e1c7;
 	width: 80%;
 	/* flex: 1 1 auto; */
 	/* height: 32vw; */
@@ -129,7 +129,7 @@ h3 span {
 .contenedor-hijo {
 	margin: 10px;
 	padding: 10px;
-	background-color: #af20d3;
+	background-color: #339476;
 	border-radius: 1.25rem;
 	/* border: 1px solid blue; */
 	/* width: 70%; */
@@ -225,7 +225,7 @@ h3 span {
 .ListaCripto {
 	border: 1px solid black;
 	border-radius: 0.2857142857rem;
-	background-color: #59b8ff;
+	background-color: #21605d;
 	/* margin: 10px; */
 	/* padding:10px; */
 	/* width: 80%; */
