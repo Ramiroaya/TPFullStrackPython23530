@@ -2,30 +2,59 @@
 	margin-top: 0;
 	padding: 0;
 	box-sizing: border-box;
+	/*font-family: nerko one;*/
 }
 
+.logo{
+	/*z-index:0;*/
+	background-image:url("img/ojoj_de_sauron.png");
+	padding-left:auto;
+	padding-right:auto;
+	width:auto;
+	height:auto;
+}
+
+.comentarios{
+	color:#a0ebfa;
+	text-shadow: 2px 2px 2px rgb(1, 59, 95);
+	padding-left:15%;
+    font-size: larger;
+}
+.desplegables{
+	background-color: #262626;
+	color:#ccdaf6;
+	font-size: large;
+}
 
 .crypto-nav-cont{
+	display: grid;
+	/*grid-template-columns:fit-content(90%);/*)auto ;/*repeat(2,4fr);*/
+	grid-template-columns: repeat(3,3fr);
+	color: #1c1919;
+	justify-content: stretch;
 	margin-left: 15%;
 	margin-right:15%;
-	margin-top:1%;
-	/*display:flex;
-	justify-content: space-between;*/
+	/*margin-top:1%;*/
+
 }
 .crypto-nav{
 
-    background-color: rgb(255, 255, 255);
-    border-color:rgb(178, 174, 174) ;
+    background-color: rgb(0, 52, 241);
+    border-color:rgb(24, 128, 255) ;
+	/*text-decoration-color: #000000;*/
+	text-align: match-parent;
+	color:#ffffff;
+	text-shadow: 2px 2px 2px rgb(0, 0, 0);
 	padding: 1%;
 	border-radius: 8%;
-	scroll-snap-type: x proximity;
+	/*scroll-snap-type: x proximity;*/
 
 }
 .barra{
-	background-color: #414141;
+	background-color: #ee2222;
 }
 .carta{
-	
+	background-color: #1c1919;
 margin-left: 15%;
 margin-right: 15%;
 margin-top: 1%;
@@ -34,15 +63,19 @@ margin-top: 1%;
 
 .icon-crypto-nav{
     width:30px; 
-    height:30px;
-
+    /*height:30px;*/
+text-align: center;
 }
 
 .contenedor-cartas{
+	background-color: #1c1919;
 	margin-left: 15%;
 	margin-top: 1%;
 }
 
+.fondo-general{
+	background-color: #1c1919;
+}
 
 
 
@@ -53,10 +86,11 @@ margin-top: 1%;
 	max-width: 1000px;
 	margin: auto;
 	overflow: hidden;
-    background-color: #f4eded;
+    background-color: #0b0a0a;
 }
 
 .regresiva{
+	padding-left:10%;
 text-align: right;
 
 }
@@ -66,7 +100,7 @@ text-align: right;
 	max-width: 1000px;
 	margin: auto;
 	overflow: hidden;
-    background-color: #ebd4d4;
+    background-color: #1c1919;
 }
 
 .titulo{
@@ -82,7 +116,7 @@ header{
 	width: 100%;
 	height: 15%;
 	/*position: relative;*/
-	background-color: #ccc;
+	background-color: #262626;
 }
 
 nav{
@@ -91,9 +125,10 @@ nav{
 }
 
 nav a{
-	color: black;
+	color: #a0d5fe;
 	font-weight: 800;
-	text-decoration: none;
+	text-shadow: 2px 2px 2px rgb(18, 84, 251);
+	text-decoration:none ;
 	margin-right: 10px;
 	font-size: 30px;
 }
@@ -108,7 +143,11 @@ header .textos-header{
 	text-align: center;
 }
 
-
+.comentarios2{
+	color:#a0ebfa;
+	text-shadow: 2px 2px 2px rgb(1, 59, 95);
+	font-size: larger;
+}
 .textos-header h1{
 	font-size: 30px;
 	font-weight: 300;
@@ -139,10 +178,13 @@ header .textos-header{
 	margin-bottom: 15px;
 	padding: 5px;
 }
-
+body{
+	background-color: #1c1919;
+	z-index:0;
+}
 .contenido-textos h3 span{
 	background: #4d0686;
-	color: white;
+	color: rgb(16, 13, 13);
 	border-radius: 50%;
 	display: inline-block;
 	text-align: center;
@@ -201,7 +243,7 @@ header .textos-header{
 }
 
 .cards .card{
-	background: #9579a8;
+	background: #cf88ff;
 	display: flex;
 	width: 46%;
 	height: 200px;
@@ -213,14 +255,14 @@ header .textos-header{
 	width: 100px;
 	height: 100px;
 	object-fit: cover;
-	border: 3px solid white;
+	border: 3px solid rgb(16, 11, 11);
 	border-radius: 50px;
 	display: block;
 }
 
 .cards .card  .contenido-texto-card{
 	width: 60%;
-	color: white;
+	color: rgb(12, 10, 10);
 }
 
 .cards .card  .contenido-texto-card p{
@@ -295,11 +337,11 @@ footer{
 }
 
 .content-footer p{
-	color: white;
+	color: rgb(0, 0, 0);
 }
 
 .titulo-final{
-	color: white;
+	color: rgb(18, 16, 16);
 	text-align: center;
 	font-size: 24px;
 	margin: 20px 0 0 0;
@@ -308,7 +350,8 @@ footer{
 /* Pagina Portafolio*/
 
 h1{
-	color: #af20d3;
+	color: #77cdff;
+	text-shadow: 2px 2px 2px rgb(39, 43, 47);
 	text-align: center;
 	
 }
