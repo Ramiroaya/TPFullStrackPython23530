@@ -1,36 +1,152 @@
 *{
-	margin: 0;
+	margin-top: 0;
 	padding: 0;
 	box-sizing: border-box;
+	/*font-family: nerko one;*/
 }
-header{
-    width: 100%;
-	height: 150px;
-	position: relative;
-	background-color: #8F7CEC;
+
+.logo{
+	/*z-index:0;*/
+	background-image:url("img/ojoj_de_sauron.png");
+	padding-left:auto;
+	padding-right:auto;
+	width:auto;
+	height:auto;
 }
-nav a{
-    padding: 30px;
-    text-align: justify;
+
+.comentarios{
+	color:#a0ebfa;
+	text-shadow: 2px 2px 2px rgb(1, 59, 95);
+	padding-left:15%;
+    font-size: larger;
 }
-.crypto-nav-cont p{
-    text-align: center;
-    height: auto;
-    width: auto;
-    font-weight: 400;
-    font-size: 40px;
+.desplegables{
+	background-color: #262626;
+	color:#ccdaf6;
+	font-size: large;
 }
-.precios{
-    text-align: justify;
-    padding: 5px;
+
+.crypto-nav-cont{
+	display: grid;
+	/*grid-template-columns:fit-content(90%);/*)auto ;/*repeat(2,4fr);*/
+	grid-template-columns: repeat(3,3fr);
+	color: #1c1919;
+	justify-content: stretch;
+	margin-left: 15%;
+	margin-right:15%;
+	/*margin-top:1%;*/
+
 }
 .crypto-nav{
-    flex-direction: column;
-    width: 150px;
-    height: 100px;
-    padding: 10px;
+
+    background-color: rgb(0, 52, 241);
+    border-color:rgb(24, 128, 255) ;
+	/*text-decoration-color: #000000;*/
+	text-align: match-parent;
+	color:#ffffff;
+	text-shadow: 2px 2px 2px rgb(0, 0, 0);
+	padding: 1%;
+	border-radius: 8%;
+	/*scroll-snap-type: x proximity;*/
+
 }
-nav p{
-    font-size: 40px;
-    text-align: center;
+.barra{
+	background-color: #ee2222;
+}
+.carta{
+	background-color: #1c1919;
+	margin-left: 15%;
+	margin-right: 15%;
+	margin-top: 1%;
+
+}
+
+.icon-crypto-nav{
+    width:30px; 
+    /*height:30px;*/
+	text-align: center;
+}
+
+.contenedor-cartas{
+	background-color: #1c1919;
+	margin-left: 15%;
+	margin-top: 1%;
+}
+
+.fondo-general{
+	background-color: #1c1919;
+}
+
+.contenedor_principal{
+	padding: 60px 0;
+	width: 100%;
+	max-width: 1000px;
+	margin: auto;
+	overflow: hidden;
+    background-color: #0b0a0a;
+}
+
+.regresiva{
+	padding-left:10%;
+	text-align: right;
+
+}
+.contenedor{
+	padding: 60px 0;
+	width: 100%;
+	max-width: 1000px;
+	margin: auto;
+	overflow: hidden;
+    background-color: #1c1919;
+}
+
+.titulo{
+	color: rgb(0, 0, 0);
+	font-size: 40px;
+	text-align: center;
+	margin-bottom: 60px;
+}
+
+/*HEADER*/
+
+header{
+	width: 100%;
+	height: 15%;
+	/*position: relative;*/
+	background-color: #262626;
+}
+
+nav{
+	text-align: right;
+	padding: 30px 50px 0 0;
+}
+
+nav a{
+	color: #a0d5fe;
+	font-weight: 800;
+	text-shadow: 2px 2px 2px rgb(18, 84, 251);
+	text-decoration:none ;
+	margin-right: 10px;
+	font-size: 30px;
+}
+
+header .textos-header{
+	display: flex;
+	height: 430px;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+}
+
+.comentarios2{
+	color:#a0ebfa;
+	text-shadow: 2px 2px 2px rgb(1, 59, 95);
+	font-size: larger;
+}
+.textos-header h1{
+	font-size: 30px;
+	font-weight: 300;
+    color: black;
 }
