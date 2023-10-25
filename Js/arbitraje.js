@@ -146,7 +146,7 @@ function displayChart() {
                 }
             });
         })
-       .catch(error => {
+        .catch(error => {
             console.error("Error fetching chart data: ", error);
         });
     }
@@ -227,7 +227,14 @@ function displayChart2() {
                 }
             });
         })
-       .catch(error => {
+        .catch(error => {
             console.error("Error fetching chart data: ", error);
         });
     }
+/*dark mode*/
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+});
