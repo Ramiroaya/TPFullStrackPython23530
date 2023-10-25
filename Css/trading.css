@@ -5,19 +5,56 @@
 }
 
 /* HEADER */
-header {
-    width: 100%;
-	border-bottom: 1px solid #547ac0;
-	background-color: #ccc;
-	position: fixed
+
+body {
+    font-family: Arial, sans-serif;
+    transition: background-color 0.5s, color 0.5s;
 }
 
-nav {
+.container {
+    text-align: right;
+    padding: 2%;
+}
+
+button {
+    background-color: #af20d3;
+    color: #fff;
+    border: none;
+    padding: 5px 20px;
+    cursor: pointer;
+    border-radius: 5px;
 	text-align: right;
-	padding: 5px 5px;
 }
 
-nav a {
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+header{
+	width: 85%;
+	position: relative;
+	display: flex;
+}
+
+.barra-navegacion{
+	display: flex;
+	justify-content: space-evenly;
+}
+.logo{
+	width: 70%;
+	height: 80%;
+	padding-top: 10%;
+	padding-left: 30%;
+}
+
+nav{
+	text-align: right;
+	height: auto;
+	padding-top: 5%;
+}
+
+nav a{
 	color: black;
 	font-weight: 800;
 	text-decoration: none;
@@ -25,12 +62,24 @@ nav a {
 	font-size: 30px;
 }
 
-/*MAIN*/
-
-main {
-	background-color: #3399ff;
-	padding: 2.5rem;
+header .textos-header{
+	display: flex;
+	height: 25%;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
 }
+
+
+.textos-header h1{
+	font-size: 30px;
+	font-weight: 300;
+    color: black;
+}
+
+/*MAIN*/
 
 .titulo {
 	text-align: start;
@@ -70,7 +119,7 @@ h3 span {
 	padding: 20px;
 	border-radius: 5%;
 	border: 2px solid black;
-	background-color: #59b8ff;
+	background-color: #87e1c7;
 	width: 80%;
 	/* flex: 1 1 auto; */
 	/* height: 32vw; */
@@ -80,7 +129,7 @@ h3 span {
 .contenedor-hijo {
 	margin: 10px;
 	padding: 10px;
-	background-color: #af20d3;
+	background-color: #339476;
 	border-radius: 1.25rem;
 	/* border: 1px solid blue; */
 	/* width: 70%; */
@@ -176,7 +225,7 @@ h3 span {
 .ListaCripto {
 	border: 1px solid black;
 	border-radius: 0.2857142857rem;
-	background-color: #59b8ff;
+	background-color: #21605d;
 	/* margin: 10px; */
 	/* padding:10px; */
 	/* width: 80%; */
