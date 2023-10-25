@@ -2,19 +2,36 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
+    
     <meta charset="utf-8">
     <meta name="viewdivort" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" tydive="text/css" href="./Css/arbitraje.css">
     <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
     <title>Arbitraje</title>
 
+    
     <script src="Js/script.js"></script>
+
 </head>
 
 <body>
     <header>
+        <div class="nav-arbitraje">
+            <nav>
+                <a href="index.html">Inicio</a>
+                <a href="Trading.html">Trading</a>
+                <a href="sitios.html">Sitios</a>
+                <a href="sesion.html">Sesion</a>
+                <a href="registro.html">Registro</a>
+                
+            </nav>
+            
+        </div>
+        <br>
+
+        
+     
         <section>
 			<div class="barra-navegacion">
                 <a href="index.html">
@@ -34,21 +51,20 @@
 				</div>
 			</div>
         </section>
+
     </header>
 
-    <section>
-
+    <section class="fondo-general">
         <!-- Navegacion de cryptos conocidas -->
-
-
-        <div class="crypto-nav-cont">
-            <p>Precios en tiempo real de las cryptodivisas mas conocidas</p>
-            <div class="regresiva" id="Timer" title="Los precios de las cryptos se actualizan cada 30segundos"></div>
+        <div class="comentarios" id="Timer" title="Los precios de las cryptos se actualizan cada 30segundos">
             <script>regresiva()</script>
+        </div>
+<br>
 
-
-
-
+<p class="comentarios">Precios en tiempo real de las cryptodivisas mas conocidas</p>
+       
+        <div class="crypto-nav-cont">
+            
             <br>
             <button class="crypto-nav">
                 <img src="img/btc.png" alt="" class="icon-crypto-nav">
@@ -138,8 +154,10 @@
                 <script>fetchCryptoPrice("uniswap", "uniswapPrice");</script>
                 <span id="uniswapPrice">$Loading...</span>
             </button>
+            
         </div>
-
+       
+<section class="logo"></section>
         <!--
 <form action="">
     <fieldset>
@@ -189,15 +207,16 @@
 </form> -->
 
     </section>
+    
     <!--Primer grafico de crypto-->
     <!---Agregado de canva-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <div class="contenedor-cartas">
         <!--  -->
-        <p>Selecciona la crypto cuyo grafico deseas analizar!</p>
+        <p class="comentarios2">Selecciona la crypto cuyo grafico deseas analizar!</p>
         <br>
-        <label for="cryptoSelect">Mostrar grafico de:</label>
-        <select id="cryptoSelect">
+        <label class="comentarios2" for="cryptoSelect">Mostrar grafico de:</label>
+        <select class="desplegables" id="cryptoSelect">
             <option value="bitcoin">Bitcoin</option>
             <option value="ethereum">Ethereum</option>
             <option value="usd-coin">USDC</option>
@@ -212,9 +231,9 @@
             <option value="matic-network">MATIC</option>
 
         </select>
-        <span title="(ingresar cantidad de dias a graficar)"> Span temporal :</span>
+        <span class= "comentarios2" title="(ingresar cantidad de dias a graficar)"> Span temporal :</span>
         <label for="dias"></label>
-        <select id="dias">
+        <select class="desplegables" id="dias">
             <option value="1">ultimo dia</option>
             <option value="2">ultimos 2 dias</option>
             <option value="7">ultimos 7 dias</option>
@@ -224,7 +243,7 @@
         </select>
 
         <!-- Create a button to display the selected cryptocurrency's chart -->
-        <button onclick="displayChart()">Graficar</button>
+        <button class="desplegables" onclick="displayChart()">Graficar</button>
 
     </div>
 
@@ -238,10 +257,10 @@
     <!--<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>-->
     <div class="contenedor-cartas">
         <!--  -->
-        <p>Selecciona otra crypto para realizar comparaciones en tiempo real!</p>
+        <p class="comentarios2">Selecciona otra crypto para realizar comparaciones en tiempo real!</p>
         <br>
-        <label for="cryptoSelect2">Mostrar grafico de:</label>
-        <select id="cryptoSelect2">
+        <label class="comentarios2" for="cryptoSelect2">Mostrar grafico de:</label>
+        <select class="desplegables" id="cryptoSelect2">
             <option value="bitcoin">Bitcoin</option>
             <option value="ethereum">Ethereum</option>
             <option value="usd-coin">USDC</option>
@@ -256,9 +275,9 @@
             <option value="matic-network">MATIC</option>
 
         </select>
-        <span title="(ingresar cantidad de dias a graficar)"> Span temporal :</span>
+        <span class= "comentarios2"title="(ingresar cantidad de dias a graficar)"> Span temporal :</span>
         <label for="dias2"></label>
-        <select id="dias2">
+        <select class="desplegables" id="dias2">
             <option value="1">ultimo dia</option>
             <option value="2">ultimos 2 dias</option>
             <option value="7">ultimos 7 dias</option>
@@ -268,7 +287,7 @@
         </select>
 
         <!-- Create a button to display the selected cryptocurrency's chart -->
-        <button onclick="displayChart2()">Graficar</button>
+        <button class="desplegables" onclick="displayChart2()">Graficar</button>
 
     </div>
 

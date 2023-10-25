@@ -4,6 +4,51 @@
 	box-sizing: border-box;
 }
 
+.logo{
+	background-image:url("img/ojoj_de_sauron.png");
+	padding-left:auto;
+	padding-right:auto;
+	width:auto;
+	height:auto;
+}
+
+.comentarios{
+	color:#a0ebfa;
+	text-shadow: 2px 2px 2px rgb(1, 59, 95);
+	padding-left:15%;
+  font-size: larger;
+}
+.desplegables{
+	background-color: #262626;
+	color:#ccdaf6;
+	font-size: large;
+}
+
+.crypto-nav-cont{
+	display: grid;
+	grid-template-columns: repeat(3,3fr);
+	color: #1c1919;
+	justify-content: stretch;
+	margin-left: 15%;
+	margin-right:15%;
+}
+.crypto-nav{
+  background-color: rgb(0, 52, 241);
+  border-color:rgb(24, 128, 255) ;
+	text-align: match-parent;
+	color:#ffffff;
+	text-shadow: 2px 2px 2px rgb(0, 0, 0);
+	padding: 1%;
+	border-radius: 8%;
+}
+.barra{
+	background-color: #ee2222;
+}
+.carta{
+	background-color: #1c1919;
+	margin-left: 15%;
+	margin-right: 15%;
+	margin-top: 1%;
 
 .crypto-nav-cont{
 	margin-left: 15%;
@@ -12,8 +57,8 @@
 }
 
 .crypto-nav{
-    background-color: rgb(255, 255, 255);
-    border-color:rgb(77, 10, 10) ;
+  background-color: rgb(255, 255, 255);
+  border-color:rgb(77, 10, 10) ;
 	padding: 1%;
 	border-radius: 8%;
 	scroll-snap-type: x proximity;
@@ -26,13 +71,23 @@
 }
 
 .icon-crypto-nav{
-    width:30px; 
-    height:30px;
+  width:30px; 
+  text-align: center;
+}
+
+.contenedor-cartas{
+	background-color: #1c1919;
+  height:30px;
 }
 
 .contenedor-cartas{
 	margin-left: 15%;
 	margin-top: 1%;
+}
+
+
+.fondo-general{
+	background-color: #1c1919;
 }
 
 .contenedor_principal{
@@ -41,20 +96,25 @@
 	max-width: 1000px;
 	margin: auto;
 	overflow: hidden;
-    background-color: #f4eded;
+  background-color: #0b0a0a;
 }
 
 .regresiva{
-	text-align: right;
-
+	padding-left:10%;
+  background-color: #f4eded;
 }
+
+.regresiva{
+  text-align: right;
+}
+  
 .contenedor{
 	padding: 60px 0;
 	width: 100%;
 	max-width: 1000px;
 	margin: auto;
 	overflow: hidden;
-    background-color: #ebd4d4;
+  background-color: #1c1919;
 }
 
 .titulo{
@@ -65,6 +125,25 @@
 }
 
 /*HEADER*/
+
+header{
+	width: 100%;
+	height: 15%;
+	/*position: relative;*/
+	background-color: #262626;
+}
+
+nav{
+	text-align: right;
+	padding: 30px 50px 0 0;
+}
+
+nav a{
+	color: #a0d5fe;
+	font-weight: 800;
+	text-shadow: 2px 2px 2px rgb(18, 84, 251);
+	text-decoration:none ;
+
 .container {
     text-align: right;
     padding: 2%;
@@ -77,8 +156,9 @@
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
-	text-align: right;
+	  text-align: right;
 }
+  
 .dark-mode {
     background-color: #333;
     color: #fff;
@@ -125,9 +205,14 @@ header .textos-header{
 	text-align: center;
 }
 
+.comentarios2{
+	color:#a0ebfa;
+	text-shadow: 2px 2px 2px rgb(1, 59, 95);
+	font-size: larger;
+}
+
 .textos-header h1{
 	font-size: 30px;
 	font-weight: 300;
-    color: black;
+  color: black;
 }
-
