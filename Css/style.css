@@ -38,6 +38,7 @@ button {
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
+	text-align: right;
 }
 
 .dark-mode {
@@ -64,7 +65,7 @@ header{
 nav{
 	text-align: right;
 	height: auto;
-	padding-top: 15%;
+	padding-top: 5%;
 }
 
 nav a{
@@ -84,7 +85,6 @@ header .textos-header{
 	flex-direction: column;
 	text-align: center;
 }
-
 
 .textos-header h1{
 	font-size: 30px;
