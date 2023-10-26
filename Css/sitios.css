@@ -1,5 +1,4 @@
 /*SITIOS*/
-
 body {
     font-family: Arial, sans-serif;
     transition: background-color 0.5s, color 0.5s;
@@ -33,19 +32,26 @@ header{
 
 .barra-navegacion{
 	display: flex;
-	justify-content: space-evenly;
+	justify-content:center;
+}
+
+.index{
+	width: 40%;
+	height: 50%;
 }
 .logo{
-	width: 50%;
-	height: 70%;
-	padding-top: 10%;
-	padding-left: 20%;
+	width: 40%;
+	height: 60%;
+	padding-top: 1%;
+	padding-left: 1%;
 }
 
 nav{
 	text-align: right;
 	height: auto;
 	padding-top: 5%;
+	padding-right: 5%;
+	display: flex;
 }
 
 nav a{
