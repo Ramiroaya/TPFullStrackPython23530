@@ -4,19 +4,27 @@
 	box-sizing: border-box;
 }
 
+body{
+	background-color: #1c1919;
+	z-index:0;
+}
+
 .logo{
-	background-image:url("img/ojoj_de_sauron.png");
-	padding-left:auto;
-	padding-right:auto;
-	width:auto;
-	height:auto;
+	width: 20%;
+	height: 30%;
+}
+
+h1{
+	color: #77cdff;
+	text-shadow: 2px 2px 2px rgb(39, 43, 47);
+	text-align: center;
 }
 
 .comentarios{
 	color:#a0ebfa;
 	text-shadow: 2px 2px 2px rgb(1, 59, 95);
 	padding-left:15%;
-  font-size: larger;
+    font-size: larger;
 }
 .desplegables{
 	background-color: #262626;
@@ -31,60 +39,40 @@
 	justify-content: stretch;
 	margin-left: 15%;
 	margin-right:15%;
+
 }
+
 .crypto-nav{
-  background-color: rgb(0, 52, 241);
-  border-color:rgb(24, 128, 255) ;
+	background-color: rgb(0, 52, 241);
+    border-color:rgb(24, 128, 255) ;
 	text-align: match-parent;
 	color:#ffffff;
 	text-shadow: 2px 2px 2px rgb(0, 0, 0);
 	padding: 1%;
 	border-radius: 8%;
 }
+
 .barra{
 	background-color: #ee2222;
 }
+
 .carta{
 	background-color: #1c1919;
-	margin-left: 15%;
-	margin-right: 15%;
-	margin-top: 1%;
-
-.crypto-nav-cont{
-	margin-left: 15%;
-	margin-right:15%;
-	margin-top:1%;
-}
-
-.crypto-nav{
-  background-color: rgb(255, 255, 255);
-  border-color:rgb(77, 10, 10) ;
-	padding: 1%;
-	border-radius: 8%;
-	scroll-snap-type: x proximity;
-}
-
-.carta{
 	margin-left: 15%;
 	margin-right: 15%;
 	margin-top: 1%;
 }
 
 .icon-crypto-nav{
-  width:30px; 
-  text-align: center;
+    width:30px; 
+	text-align: center;
 }
 
 .contenedor-cartas{
 	background-color: #1c1919;
-  height:30px;
-}
-
-.contenedor-cartas{
 	margin-left: 15%;
 	margin-top: 1%;
 }
-
 
 .fondo-general{
 	background-color: #1c1919;
@@ -96,25 +84,21 @@
 	max-width: 1000px;
 	margin: auto;
 	overflow: hidden;
-  background-color: #0b0a0a;
+    background-color: #0b0a0a;
 }
 
 .regresiva{
 	padding-left:10%;
-  background-color: #f4eded;
+	text-align: right;
 }
 
-.regresiva{
-  text-align: right;
-}
-  
 .contenedor{
 	padding: 60px 0;
 	width: 100%;
 	max-width: 1000px;
 	margin: auto;
 	overflow: hidden;
-  background-color: #1c1919;
+    background-color: #1c1919;
 }
 
 .titulo{
@@ -126,16 +110,10 @@
 
 /*HEADER*/
 
-header{
-	width: 100%;
-	height: 15%;
-	/*position: relative;*/
-	background-color: #262626;
-}
-
 nav{
 	text-align: right;
-	padding: 30px 50px 0 0;
+	height: auto;
+	padding-top: 1%;
 }
 
 nav a{
@@ -143,61 +121,13 @@ nav a{
 	font-weight: 800;
 	text-shadow: 2px 2px 2px rgb(18, 84, 251);
 	text-decoration:none ;
-
-.container {
-    text-align: right;
-    padding: 2%;
-}
-
-.tema{
-    background-color: #af20d3;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-	  text-align: right;
-}
-  
-.dark-mode {
-    background-color: #333;
-    color: #fff;
-}
-
-header{
-	width: 100%;
-	position: relative;
-	display: flexbox;
-}
-
-.barra-navegacion{
-	display: flex;
-	justify-content: space-evenly;
-}
-.logo{
-	width: 70%;
-	height: 70%;
-	padding-top: 5%;
-	padding-left: 20%;
-}
-
-nav{
-	text-align: right;
-	height: auto;
-	padding-top: 5%;
-}
-
-nav a{
-	color: black;
-	font-weight: 800;
-	text-decoration: none;
 	margin-right: 10px;
 	font-size: 30px;
 }
 
 header .textos-header{
 	display: flex;
-	height: 25%;
+	height: 430px;
 	width: 100%;
 	align-items: center;
 	justify-content: center;
@@ -210,9 +140,8 @@ header .textos-header{
 	text-shadow: 2px 2px 2px rgb(1, 59, 95);
 	font-size: larger;
 }
-
 .textos-header h1{
 	font-size: 30px;
 	font-weight: 300;
-  color: black;
+    color: black;
 }

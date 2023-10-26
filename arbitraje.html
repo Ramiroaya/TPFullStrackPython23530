@@ -6,35 +6,29 @@
     
     <meta charset="utf-8">
     <meta name="viewdivort" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" tydive="text/css" href="./Css/arbitraje.css">
+    <link rel="stylesheet" tydive="text/css" href="Css/stylearb.css">
     <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
     <title>Arbitraje</title>
-
-    
-   
+    <script src="Js/arbitraje.js"></script>
 </head>
 
 <body>
-    <section>
-			<div class="barra-navegacion">
-                <a href="index.html">
-				<img class= "logo" src="img/logo_web.jpeg">
-                </a>
-                <div>
-					<div class="container">
-						<button class="tema" id="theme-toggle">Cambiar Tema</button>
-					</div>
-					<nav>
-					<a href="index.html">Inicio</a>
-					<a href="trading.html">Trading</a>
-					<a href="sitios.html">Sitios</a>
-					<a href="sesion.html">Sesion</a>
-					<a href="registro.html">Registro</a>
-					</nav>
-				</div>
-			</div>
-        </section>
+    <header>
+        <div class="nav-arbitraje">
+            <nav>
+                <a href="index.html"><img class= "logo" src="img/b07be558-2650-4921-8b66-735b62405771.png"></a>
+                <a href="index.html">Inicio</a>
+                <a href="Trading.html">Trading</a>
+                <a href="arbitraje.html">Arbitraje</a>
+                <a href="sesion.html">Sesion</a>
+                <a href="registro.html">Registro</a>
+            </nav>
+        </div>
+        <br>
 
+        <section>
+            <h1>SECCION DE ARBITRAJE</h1>
+        </section>
     </header>
 
     <section class="fondo-general">
@@ -42,12 +36,11 @@
         <div class="comentarios" id="Timer" title="Los precios de las cryptos se actualizan cada 30segundos">
             <script>regresiva()</script>
         </div>
-<br>
+    <br>
 
 <p class="comentarios">Precios en tiempo real de las cryptodivisas mas conocidas</p>
-       
+
         <div class="crypto-nav-cont">
-            
             <br>
             <button class="crypto-nav">
                 <img src="img/btc.png" alt="" class="icon-crypto-nav">
@@ -137,10 +130,8 @@
                 <script>fetchCryptoPrice("uniswap", "uniswapPrice");</script>
                 <span id="uniswapPrice">$Loading...</span>
             </button>
-            
         </div>
-       
-<section class="logo"></section>
+
         <!--
 <form action="">
     <fieldset>
@@ -271,14 +262,11 @@
 
         <!-- Create a button to display the selected cryptocurrency's chart -->
         <button class="desplegables" onclick="displayChart2()">Graficar</button>
-
     </div>
 
     <div class="carta">
         <canvas id="cryptoChart2" width="400" height="300"></canvas>
     </div>
     <!--Hasta aca lo del primer grafico-->
-    <script src="Js/arbitraje.js"></script>
-
 </body>
 </html>
