@@ -1,3 +1,8 @@
+
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+});
+
 //Access-Control-Allow-Origin: *;
 //***** cuenta regresiva actualizacion*/////////////
 function regresiva(){
@@ -235,6 +240,3 @@ function displayChart2() {
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 
-themeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-});
