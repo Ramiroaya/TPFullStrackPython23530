@@ -1,4 +1,3 @@
-// Array para almacenar los registros
 const registros = [];
 export default registros;
 
@@ -53,5 +52,3 @@ document.addEventListener("DOMContentLoaded", function(){
     }
   });
 });
-
-

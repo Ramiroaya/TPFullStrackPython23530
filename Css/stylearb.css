@@ -10,8 +10,8 @@ body{
 }
 
 .logo{
-	width: 20%;
-	height: 30%;
+	width: 10%;
+	height: auto;
 }
 
 h1{
@@ -122,7 +122,7 @@ nav a{
 	text-shadow: 2px 2px 2px rgb(18, 84, 251);
 	text-decoration:none ;
 	margin-right: 10px;
-	font-size: 30px;
+	font-size: 20px;
 }
 
 header .textos-header{
@@ -144,4 +144,45 @@ header .textos-header{
 	font-size: 30px;
 	font-weight: 300;
     color: black;
+}
+
+
+/*FOOTER*/
+
+footer{
+	background-color: #8F7CEC;
+	padding: 60px 0 30px 0;
+	margin: auto;
+	overflow: hidden;
+}
+
+.contenedor-footer{
+	display: flex;
+	width: 90%;
+	justify-content: space-evenly;
+	margin: auto;
+	padding-bottom: 50px;
+	border-bottom: 1px solid #8F7CEC;
+}
+
+.content-footer{
+	text-align: center;
+}
+
+.content-footer h4{
+	color: black;
+	border-bottom: 3px solid #af20d3;
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+}
+
+.content-footer p{
+	color: black;
+}
+
+.titulo-final{
+	color: black;
+	text-align: center;
+	font-size: 24px;
+	margin: 20px 0 0 0;
 }
