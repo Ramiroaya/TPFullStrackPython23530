@@ -1,8 +1,3 @@
-
-themeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-});
-
 //Access-Control-Allow-Origin: *;
 //***** cuenta regresiva actualizacion*/////////////
 function regresiva(){
@@ -126,7 +121,7 @@ function displayChart() {
                         {
                             label: `Precio de ${selectedCrypto.toUpperCase() } en (usd)`,
                             data: chartData,
-                            borderColor: "rgba(244, 0, 0, 1)",
+                            borderColor: "rgb(0, 255, 255)",
                             borderWidth: 1,
                             fill: false
                         }
@@ -137,6 +132,8 @@ function displayChart() {
                     maintainAspectRatio: false,
                    // mode:"no-cors",
                     pointStyle: false,
+
+                   // backgroundColor: white,
                     /*scales: {
                         x: {
                             type: 'time', // Set the X-axis scale type to 'time'
@@ -151,7 +148,7 @@ function displayChart() {
                 }
             });
         })
-        .catch(error => {
+       .catch(error => {
             console.error("Error fetching chart data: ", error);
         });
     }
@@ -207,7 +204,7 @@ function displayChart2() {
                         {
                             label: `Precio de ${selectedCrypto2.toUpperCase() } en (usd)`,
                             data: chartData2,
-                            borderColor: "rgba(0, 244, 0, 1)",
+                            borderColor: "rgb(0, 164, 255)",
                             borderWidth: 1,
                             fill: false
                         }
@@ -232,11 +229,7 @@ function displayChart2() {
                 }
             });
         })
-        .catch(error => {
+       .catch(error => {
             console.error("Error fetching chart data: ", error);
         });
     }
-/*dark mode*/
-const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
-
