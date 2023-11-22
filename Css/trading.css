@@ -61,28 +61,10 @@ nav{
 }
 
 nav a{
-	color: black;
 	font-weight: 800;
 	text-decoration: none;
 	margin-right: 10px;
 	font-size: 20px;
-}
-
-header .textos-header{
-	display: flex;
-	height: 25%;
-	width: 100%;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	text-align: center;
-}
-
-
-.textos-header h1{
-	font-size: 30px;
-	font-weight: 300;
-    color: black;
 }
 
 /*MAIN*/
@@ -92,23 +74,12 @@ header .textos-header{
 	font-size: 1.5rem;
 	width: 100%;
 	padding-left: 10rem;
-	/* max-width: 1000px; */
-	/* margin: auto; */
 }
 
 h3 span {
 	color: rgb(78, 78, 78);
 	font-weight: 300;
 }
-
-/* .foto-pag-trading{
-	width: 30em;
-	box-sizing: border-box;
-	background-color: lightblue;
-	position: sticky;
-	padding: 50px;
-	top: 0;
-} */
 
 .contenedor-tema {
 	display: flex;
@@ -127,9 +98,6 @@ h3 span {
 	border: 2px solid black;
 	background-color: #87e1c7;
 	width: 80%;
-	/* flex: 1 1 auto; */
-	/* height: 32vw; */
-	/* justify-content: center; */
 }
 
 .contenedor-hijo {
@@ -137,8 +105,6 @@ h3 span {
 	padding: 10px;
 	background-color: #339476;
 	border-radius: 1.25rem;
-	/* border: 1px solid blue; */
-	/* width: 70%; */
 }
 
 .highlights-padre {
@@ -149,11 +115,6 @@ h3 span {
 	border: 1px solid black;
 	border-radius: 1.25rem;
 	background-color: #59b8ff;
-	/* flex: 1 1 auto; */
-	/* width: 75%; */
-	/* margin: 10; */
-	/* font-weight: bold; */
-	/* font-size: 1.5em; */
 }
 
 /*INFO DESTACADA*/
@@ -175,7 +136,6 @@ h3 span {
 	box-sizing: border-box;
 	justify-content: space-between;
 	align-items: center;
-	/* flex: 1 1 auto; */
 }
 
 .detalle1 {
@@ -183,7 +143,6 @@ h3 span {
 	flex-direction: row;
 	align-items: flex-end;
 }
-
 
 .detalle1 span {
 	margin: 0 0.25rem;
@@ -217,10 +176,6 @@ h3 span {
 	border-top-right-radius: 0.2857142857rem;
 	padding: 10px;
 	width: 100%;
-	/* border-radius: 1.25rem; */
-	/* margin-bottom: 0.5rem; */
-	/* border: 1px solid black; */
-	/* justify-content: space-between; */
 }
 
 .CriptoHeader .search-input {
@@ -232,18 +187,12 @@ h3 span {
 	border: 1px solid black;
 	border-radius: 0.2857142857rem;
 	background-color: #21605d;
-	/* margin: 10px; */
-	/* padding:10px; */
-	/* width: 80%; */
 }
-
 
 table {
 	border-collapse: separate;
 	text-indent: initial;
 	width: 100%;
-	/* padding: 10px; */
-	/* border-spacing: 10px; */
 }
 
 thead {
@@ -263,9 +212,6 @@ th {
 	border-top-left-radius: 0.2857142857rem;
 	border-top-right-radius: 0.2857142857rem;
 	border-bottom: 1px solid rgb(90, 87, 87)
-	/* padding: 0 1.1428571429rem; */
-	/* font-weight: 500; */
-	/* color: #373D43; */
 }
 
 tbody tr {
@@ -276,7 +222,6 @@ tbody td {
 	border-top: none;
 	padding: 5px;
 }
-
 
 .theadButton {
 	position: relative;

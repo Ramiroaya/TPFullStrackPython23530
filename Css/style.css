@@ -1,3 +1,9 @@
+/* Paleta
+claro ------------Oscuro
+#ffffff blanco	  #000000 negro
+#00fffd celeste   #1b26bb azul
+#f000ff rosa      #901a94 violeta
+*/ 
 *{
 	box-sizing: border-box;
 	margin: 0;
@@ -13,7 +19,6 @@
 }
 
 .titulo{
-	color: rgb(0, 0, 0);
 	font-size: 40px;
 	text-align: center;
 	margin-bottom: 20px;
@@ -42,7 +47,7 @@ button {
 }
 
 .dark-mode {
-    background-color: #333;
+    background-color: #000;
     color: #fff;
 }
 
@@ -70,7 +75,6 @@ nav{
 }
 
 nav a{
-	color: black;
 	font-weight: 800;
 	text-decoration: none;
 	margin-right: 10px;
@@ -87,10 +91,9 @@ header .textos-header{
 	text-align: center;
 }
 
-.textos-header h1{
+.textos-header a{
 	font-size: 30px;
 	font-weight: 300;
-    color: black;
 }
 
 .slider img{
@@ -148,10 +151,6 @@ header .textos-header{
 	flex-wrap: wrap;
 }
 
-.galeria-port p{
-	color: rgb(136, 12, 12);
-}
-
 .imagen-port{
 	width: 24%;
 	margin-bottom: 10px;
@@ -167,10 +166,6 @@ header .textos-header{
 	height: 100%;
 	object-fit: cover;
 	display: block;
-}
-
-.imagen-port p{
-	color: rgb(0, 0, 0);
 }
 
 .zoom:hover{
@@ -212,7 +207,6 @@ header .textos-header{
 }
 
 .servicio-ind h3{
-	color: #af20d3;
 	margin: 10px 0;
 }
 
