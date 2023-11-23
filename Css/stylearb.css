@@ -137,9 +137,7 @@ header .textos-header{
 
 .carta{
 	background-color: #1c1919;
-	margin-left: 15%;
-	margin-right: 15%;
-	margin-top: 1%;
+	margin: 1% 15% 5% 15%;
 }
 
 /*FOOTER*/
