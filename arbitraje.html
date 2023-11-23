@@ -14,23 +14,29 @@
 
 <body>
     <header>
-        <div class="nav-arbitraje">
-            <nav>
-                <a href="index.html"><img class= "logo" src="img/b07be558-2650-4921-8b66-735b62405771.png"></a>
+        <div class="barra-navegacion">
+            <img class= "logo" src="img/b07be558-2650-4921-8b66-735b62405771.png">
+            <div>
+                <div class="container">
+                    <button id="theme-toggle">Cambiar Tema</button>
+                </div>
+                <nav>
                 <a href="index.html">Inicio</a>
-                <a href="Trading.html">Trading</a>
+                <a href="trading.html">Trading</a>
                 <a href="sitios.html">Sitios</a>
                 <a href="sesion.html">Sesion</a>
                 <a href="registro.html">Registro</a>
-            </nav>
+                </nav>
+            </div>
         </div>
         <br>
 
-        <section>
-            <h1>SECCION DE ARBITRAJE</h1>
+        <section class="textos-header">
+            <a>SECCION DE ARBITRAJE</a>
         </section>
     </header>
-
+    
+    <main>
     <section class="fondo-general">
         <!-- Navegacion de cryptos conocidas -->
         <div class="comentarios" id="Timer" title="Los precios de las cryptos se actualizan cada 30segundos">
@@ -267,6 +273,8 @@
     <div class="carta">
         <canvas id="cryptoChart2" width="400" height="300"></canvas>
     </div>
+    </main>
+
     <footer>
 		<div class="contenedor-footer">
 			<div class="content-footer">
