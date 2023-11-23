@@ -88,33 +88,29 @@ header .textos-header{
 .textos-header a{
 	font-size: 30px;
 	font-weight: 300;
+	text-align: center;
 }
 
 /*MAIN*/
 
 .comentarios{
-	color:#a0ebfa;
-	text-shadow: 2px 2px 2px rgb(1, 59, 95);
 	padding-left:15%;
     font-size: larger;
+	text-align: justify;
 }
 
 .crypto-nav-cont{
-	display: grid;
+	text-align: justify;
+	display: flex;
+	flex-wrap: wrap;
 	grid-template-columns: repeat(3,3fr);
-	color: #1c1919;
 	justify-content: stretch;
-	margin-left: 15%;
-	margin-right:15%;
+	margin: 2% 15% 2% 15%;
 
 }
 
 .crypto-nav{
-	background-color: rgb(0, 52, 241);
-    border-color:rgb(24, 128, 255) ;
 	text-align: match-parent;
-	color:#ffffff;
-	text-shadow: 2px 2px 2px rgb(0, 0, 0);
 	padding: 1%;
 	border-radius: 8%;
 }
@@ -124,14 +120,11 @@ header .textos-header{
 	text-align: center;
 }
 .contenedor-cartas{
-	background-color: #1c1919;
 	margin-left: 15%;
 	margin-top: 1%;
 }
 
 .comentarios2{
-	color:#a0ebfa;
-	text-shadow: 2px 2px 2px rgb(1, 59, 95);
 	font-size: larger;
 }
 
@@ -153,7 +146,7 @@ header .textos-header{
 
 footer{
 	background-color: #8F7CEC;
-	padding: 60px 0 30px 0;
+	padding: 5% 0 5% 0;
 	margin: auto;
 	overflow: hidden;
 }
