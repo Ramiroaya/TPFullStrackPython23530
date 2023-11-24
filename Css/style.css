@@ -18,10 +18,10 @@ claro ------------Oscuro
 	overflow: hidden;
 }
 
-.titulo{
+.titulo{	
 	font-size: 40px;
 	text-align: center;
-	margin-bottom: 20px;
+	margin: 10vh;
 }
 
 /*HEADER*/
@@ -85,10 +85,13 @@ header .textos-header{
 	display: flex;
 	height: 25%;
 	width: 100%;
+	margin: 8vh;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
 	text-align: center;
+	margin: 8vh;
+    font-size: 24px;
 }
 
 .textos-header a{
@@ -176,6 +179,10 @@ header .textos-header{
 /*RESPONSABILIDAD*/
 
 .respon{
+	width: 98%;
+	height: auto;
+	padding: 2vh 5%;
+	margin: auto;
 	text-align: justify;
 	background-color: black;
 	color: #ab9eef;
@@ -197,6 +204,7 @@ header .textos-header{
 .servicio-ind{
 	width: 28%;
 	text-align: center;
+	
 }
 
 .servicio-ind img{
@@ -204,6 +212,7 @@ header .textos-header{
 	margin: auto;
 	width: 250px;
 	height: 200px;
+	border-radius: 15px;
 }
 
 .servicio-ind h3{
@@ -261,4 +270,35 @@ h1{
 	color: #af20d3;
 	text-align: center;
 	
+}
+
+/* Media Query para pantallas más pequeñas */
+@media only screen and (max-width: 768px) {
+    .logo {
+        width: 20%;
+    }
+
+    .barra-navegacion {
+        flex-direction: column; 
+    }
+
+    nav a {
+        margin-right: 0; 
+    }
+
+	header .textos-header {
+        margin: 5vh; 
+        font-size: 20px; 
+    }
+
+    
+}
+
+/* Media Query para pantallas aún más pequeñas */
+@media only screen and (max-width: 480px) {
+    .logo {
+        width: 30%; 
+    }
+
+    
 }
