@@ -31,17 +31,18 @@ body {
 }
 
 button {
-    background-color: #af20d3;
+    background-color: #207cd3;
     color: #fff;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
+	border-color:#000;
 	text-align: right;
 }
 
 .dark-mode {
-    background-color: #000;
+    background-color: #00305d;
     color: #fff;
 }
 
@@ -130,13 +131,14 @@ header .textos-header{
 
 
 .desplegables{
-	background-color: #262626;
-	color:#ccdaf6;
+	background-color:#207cd3;
+	color:#ffffff;
 	font-size: large;
+	
 }
 
 .carta{
-	background-color: #1c1919;
+	background-color: #d0e8ff;
 	margin-left: 15%;
 	margin-right: 15%;
 	margin-top: 1%;
@@ -145,7 +147,7 @@ header .textos-header{
 /*FOOTER*/
 
 footer{
-	background-color: #8F7CEC;
+	background-color: #207cd3;
 	padding: 5% 0 5% 0;
 	margin: auto;
 	overflow: hidden;
