@@ -8,8 +8,8 @@ function isValidEmail(email) {
 }
 
 // Función para agregar un nuevo registro
-function agregarRegistro(userName, email, password) {
-  registros.push({ userName, email, password });
+function agregarRegistro(userName, ciudad, email, password) {
+  registros.push({ userName, ciudad, email, password });
 }
 
 // Función para validar la contraseña (puedes expandirla según tus necesidades)
@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     // Obtén los valores de los campos de entrada
     const userName = document.getElementById("userName").value;
+    const ciudad = document.getElementById("ciudad").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
@@ -40,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function(){
       alert("Las contraseñas no coinciden. Inténtalo de nuevo.");
     } else {
       // Agrega el registro al array
-      agregarRegistro(userName, email, password);
+      agregarRegistro(userName, ciudad, email, password);
       // Almacena los registros en el Local Storage
       localStorage.setItem('registros', JSON.stringify(registros));
       console.log(registros);

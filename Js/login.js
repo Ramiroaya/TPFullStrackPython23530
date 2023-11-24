@@ -4,7 +4,7 @@ function loginCheck(userName, password, registros) {
 }
 
 // Evento de clic en el botón de "Enviar"
-document.getElementById("submit").addEventListener("click", function(event) {
+document.getElementById("submit").addEventListener("click", function (event) {
     event.preventDefault();
 
     const userName = document.getElementById("userName").value;
@@ -18,10 +18,29 @@ document.getElementById("submit").addEventListener("click", function(event) {
 
     if (userRecord) {
         alert("Login exitoso. Sesión Iniciada");
-        document.getElementById("login-form").reset();
+
+        // Almacenar el nombre de usuario en el Local Storage
+        localStorage.setItem('nombreUsuario', userName);
+
+        // Redirigir a index.html
         window.location.href = "index.html";
     } else {
         alert("Usuario o Contraseña incorrectos");
+    }
+});
+
+// Verificar si hay un usuario logueado al cargar la página principal (index.html)
+document.addEventListener("DOMContentLoaded", function () {
+    const nombreUsuario = localStorage.getItem('nombreUsuario');
+
+    if (nombreUsuario) {
+        // Mostrar el saludo en la barra de navegación
+        const saludoContainer = document.getElementById("saludo-container");
+
+        if (saludoContainer) {
+            saludoContainer.style.display = "block";
+            saludoContainer.innerText = "Hola " + nombreUsuario;
+        }
     }
 });
 

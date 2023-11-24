@@ -80,7 +80,8 @@ nav a{
 .login-box {
     position: relative;
     margin: 25% 0% -20% 50%;
-    width: 40%;
+    width: 25%;
+    height: auto;
     padding: 4%;
     transform: translate(-50%, -50%);
     background: #242026;
