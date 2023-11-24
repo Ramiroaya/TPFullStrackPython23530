@@ -97,6 +97,16 @@ header .textos-header{
 	flex: 1 1 auto;
 }
 
+iframe{
+	display: flex;
+	height: 50%;
+	width: 50%;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	flex-direction: column;
+}
+
 .contenedor-padre {
 	display: flex;
 	flex-flow: column nowrap;

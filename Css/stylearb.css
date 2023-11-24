@@ -91,6 +91,18 @@ header .textos-header{
 	text-align: center;
 }
 
+iframe{
+	display: flex;
+	height: 30%;
+	width: 30%;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	margin-left: 35%;
+	margin-right: 25%;
+}
+
 /*MAIN*/
 
 .comentarios{
