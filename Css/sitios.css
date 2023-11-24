@@ -107,3 +107,39 @@ footer{
 	font-size: 24px;
 }
 
+/* Media Query para pantallas más pequeñas (ej. tablets) */
+@media only screen and (max-width: 768px) {
+    .logo {
+        width: 20%; 
+    }
+
+    .barra-navegacion {
+        justify-content: space-evenly; 
+    }
+
+    nav a {
+        margin-right: 5px; 
+        font-size: 18px; 
+    }
+
+   
+}
+
+/* Media Query para pantallas aún más pequeñas (ej. smartphones) */
+@media only screen and (max-width: 480px) {
+    .logo {
+        width: 30%;
+    }
+
+    .barra-navegacion {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    nav a {
+        margin-right: 0; 
+        font-size: 16px; 
+    }
+
+    
+}
