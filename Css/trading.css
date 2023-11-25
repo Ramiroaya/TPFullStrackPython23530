@@ -53,6 +53,7 @@ header{
 .barra-navegacion{
 	display: flex;
 	justify-content: space-evenly;
+	flex-wrap: wrap;
 }
 
 .logo{
@@ -95,6 +96,16 @@ header .textos-header{
 	width: 100%;
 	justify-content: center;
 	flex: 1 1 auto;
+}
+
+iframe{
+	display: flex;
+	height: 50%;
+	width: 50%;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	flex-direction: column;
 }
 
 .contenedor-padre {
@@ -245,13 +256,14 @@ tbody td {
 	box-sizing: border-box;
 	overflow: hidden;
 	cursor: pointer;
+	flex-direction: column;
 }
 
 /*FOOTER*/
 
 footer{
 	background-color: #8F7CEC;
-	padding: 60px 0 30px 0;
+	padding: 1% 0% 1% 0%;
 	margin: auto;
 	overflow: hidden;
 }
@@ -267,13 +279,12 @@ footer{
 
 .content-footer{
 	text-align: center;
+	margin: 1% 10% 1% 10%;
 }
 
 .content-footer h4{
 	color: black;
 	border-bottom: 3px solid #af20d3;
-	padding-bottom: 5px;
-	margin-bottom: 10px;
 }
 
 .content-footer p{
@@ -284,5 +295,76 @@ footer{
 	color: black;
 	text-align: center;
 	font-size: 24px;
-	margin: 20px 0 0 0;
+}
+
+/* Pagina Portafolio*/
+
+h1{
+	color: #af20d3;
+	text-align: center;
+	
+}
+
+/* Media Query para pantallas más pequeñas (ej. tablets) */
+@media only screen and (max-width: 768px) {
+    .logo {
+        width: 20%; 
+    }
+
+    .barra-navegacion {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    nav a {
+        font-size: 16px;
+		margin-right: 5px;
+    }
+
+    .login-box {
+        margin: 10% 0% -10% 50%; 
+        width: 80%; 
+    }
+
+    #submit {
+        font-size: 14px; 
+    }
+
+    #register {
+        font-size: 12px; 
+        width: 80%; 
+    }
+}
+
+/* Media Query para pantallas aún más pequeñas (ej. smartphones) */
+@media only screen and (max-width: 480px) {
+    .logo {
+        width: 30%; 
+    }
+
+    nav a {
+        font-size: 14px; 
+    }
+
+    .login-box {
+        margin: 10% 0% -10% 50%; 
+        width: 90%; 
+    }
+
+    #submit {
+        font-size: 12px; 
+    }
+
+    #register {
+        font-size: 10px; 
+        width: 90%; 
+    }
+
+    .highlights-padre {
+        flex-direction: column; 
+    }
+
+    .highlights-hijo {
+        width: 100%; 
+    }
 }

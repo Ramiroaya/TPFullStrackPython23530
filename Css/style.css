@@ -18,10 +18,10 @@ claro ------------Oscuro
 	overflow: hidden;
 }
 
-.titulo{
+.titulo{	
 	font-size: 40px;
 	text-align: center;
-	margin-bottom: 20px;
+	margin: 10vh;
 }
 
 /*HEADER*/
@@ -85,10 +85,13 @@ header .textos-header{
 	display: flex;
 	height: 25%;
 	width: 100%;
+	margin: 8vh;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
 	text-align: center;
+	margin: 8vh;
+    font-size: 24px;
 }
 
 .textos-header a{
@@ -99,6 +102,18 @@ header .textos-header{
 .slider img{
 	width: 7%;
 	height: 7%;
+}
+
+iframe{
+	display: flex;
+	height: 50%;
+	width: 50%;
+	margin-left: 25%;
+	margin-right: 25%;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
 }
 
 /*TRAIDING*/
@@ -176,6 +191,10 @@ header .textos-header{
 /*RESPONSABILIDAD*/
 
 .respon{
+	width: 98%;
+	height: auto;
+	padding: 2vh 5%;
+	margin: auto;
 	text-align: justify;
 	background-color: black;
 	color: #ab9eef;
@@ -197,6 +216,7 @@ header .textos-header{
 .servicio-ind{
 	width: 28%;
 	text-align: center;
+	
 }
 
 .servicio-ind img{
@@ -204,6 +224,7 @@ header .textos-header{
 	margin: auto;
 	width: 250px;
 	height: 200px;
+	border-radius: 15px;
 }
 
 .servicio-ind h3{
@@ -221,7 +242,7 @@ header .textos-header{
 
 footer{
 	background-color: #8F7CEC;
-	padding: 60px 0 30px 0;
+	padding: 1% 0% 1% 0%;
 	margin: auto;
 	overflow: hidden;
 }
@@ -237,13 +258,12 @@ footer{
 
 .content-footer{
 	text-align: center;
+	margin: 1% 10% 1% 10%;
 }
 
 .content-footer h4{
 	color: black;
 	border-bottom: 3px solid #af20d3;
-	padding-bottom: 5px;
-	margin-bottom: 10px;
 }
 
 .content-footer p{
@@ -254,7 +274,6 @@ footer{
 	color: black;
 	text-align: center;
 	font-size: 24px;
-	margin: 20px 0 0 0;
 }
 
 /* Pagina Portafolio*/
@@ -263,4 +282,35 @@ h1{
 	color: #af20d3;
 	text-align: center;
 	
+}
+
+/* Media Query para pantallas más pequeñas */
+@media only screen and (max-width: 768px) {
+    .logo {
+        width: 20%;
+    }
+
+    .barra-navegacion {
+        flex-direction: column; 
+    }
+
+    nav a {
+        margin-right: 0; 
+    }
+
+	header .textos-header {
+        margin: 5vh; 
+        font-size: 20px; 
+    }
+
+    
+}
+
+/* Media Query para pantallas aún más pequeñas */
+@media only screen and (max-width: 480px) {
+    .logo {
+        width: 30%; 
+    }
+
+    
 }
