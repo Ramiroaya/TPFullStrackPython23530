@@ -1,17 +1,17 @@
 //Access-Control-Allow-Origin: *;
 //***** cuenta regresiva actualizacion*/////////////
-function regresiva(){
+function regresiva() {
     var timeLeft = 30;
     var elem = document.getElementById('Timer');
     var timerId = setInterval(countdown, 1000);
-function countdown() {
-    if (timeLeft == 0) {
-        timeLeft=30;
-        //clearTimeout(timerId);
-        //document.write(`${timeLeft}`);
+    function countdown() {
+        if (timeLeft == 0) {
+            timeLeft = 30;
+            //clearTimeout(timerId);
+            //document.write(`${timeLeft}`);
         } else {
-        elem.innerHTML = 'Actualizando en ' + timeLeft + ' segundos';
-        timeLeft--;
+            elem.innerHTML = 'Actualizando en ' + timeLeft + ' segundos';
+            timeLeft--;
         }
     }
 }
@@ -31,7 +31,7 @@ function fetchCryptoPrice(cryptoSymbol, elementId) {
         });
 }
 
-function startRealTimeUpdates(interval) {
+/*function startRealTimeUpdates(interval) {
     // Fetch and update Bitcoin price
     fetchCryptoPrice("bitcoin", "bitcoinPrice");
     fetchCryptoPrice("ethereum", "ethereumPrice");
@@ -63,9 +63,8 @@ function startRealTimeUpdates(interval) {
         fetchCryptoPrice("matic-network", "matic-networkPrice");
         // Fetch and update prices for other cryptocurrencies here
     }, interval);
-}
-// Call the startRealTimeUpdates function with a 30-second interval (adjust as needed)
-startRealTimeUpdates(30000);/*Agregar cuenta regresiva actualizando en.... x segundos*/
+}*/
+//startRealTimeUpdates(30000);/*Agregar cuenta regresiva actualizando en.... x segundos*/
 /***********************************************************************/
 /********************************************************************** */
 //Funcion para dar formato a eje x del grafico */
@@ -75,13 +74,13 @@ function formatTimestamps(timestamps) {
     const timeDifferenceInDays = (currentTime - timestamps[0]) / (1000 * 60 * 60 * 24);
 
     if (timeDifferenceInDays <= 2) {
-        // Display time in "hours and minutes"
+
         return timestamps.map(timestamp => {
             const options = { hour: 'numeric', minute: '2-digit' };
             return new Intl.DateTimeFormat('en-US', options).format(timestamp);
         });
     } else {
-        // Display time in "Month Day" format (e.g., "October 1")
+
         return timestamps.map(timestamp => {
             const options = { month: 'short', day: 'numeric' };
             return new Intl.DateTimeFormat('en-US', options).format(timestamp);
@@ -92,21 +91,21 @@ function formatTimestamps(timestamps) {
 /********************************************************************** */
 let grafico; /*creo variable global para grafico*/
 function displayChart() {
-    if(grafico){
+    if (grafico) {
         grafico.destroy();
     }
     const selectedCrypto = document.getElementById("cryptoSelect").value;
     const dias = document.getElementById("dias").value;//traigo los dias a desplegar desde el index
-    // Fetch cryptocurrency chart data based on the selected cryptocurrency
+
     fetch(`https://api.coingecko.com/api/v3/coins/${selectedCrypto}/market_chart?vs_currency=usd&days=${dias}`)
         .then(response => response.json())
         .then(data => {
             const chartData = data.prices.map(price => price[1]);
             //const labels = data.prices.map(price => new Date(price[0]));
             const timestamps = data.prices.map(price => new Date(price[0]));
-            // Format timestamps based on the selected time range
+
             const formattedLabels = formatTimestamps(timestamps)
-            // Extract the hour and minute components from the timestamps
+
             const hourMinuteLabels = timestamps.map(timestamp => {
                 const options = { hour: 'numeric', minute: '2-digit' };
                 return new Intl.DateTimeFormat('en-US', options).format(timestamp);
@@ -119,9 +118,9 @@ function displayChart() {
                     labels: formattedLabels,//hourMinuteLabels,
                     datasets: [
                         {
-                            label: `Precio de ${selectedCrypto.toUpperCase() } en (usd)`,
+                            label: `Precio de ${selectedCrypto.toUpperCase()} en (usd)`,
                             data: chartData,
-                            borderColor: "rgb(0, 255, 255)",
+                            borderColor: "rgb(0, 51, 102)",
                             borderWidth: 1,
                             fill: false
                         }
@@ -130,10 +129,10 @@ function displayChart() {
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                   // mode:"no-cors",
+                    // mode:"no-cors",
                     pointStyle: false,
 
-                   // backgroundColor: white,
+                    // backgroundColor: white,
                     /*scales: {
                         x: {
                             type: 'time', // Set the X-axis scale type to 'time'
@@ -148,10 +147,10 @@ function displayChart() {
                 }
             });
         })
-       .catch(error => {
+        .catch(error => {
             console.error("Error fetching chart data: ", error);
         });
-    }
+}
 /*Segunda funcion para timestamps de grafico 2*/
 function formatTimestamps2(timestamps2) {
     const currentTime = new Date();
@@ -172,29 +171,29 @@ function formatTimestamps2(timestamps2) {
     }
 }
 /**********************************************/
-    /*Segundo grafico*/
-    let grafico2; /*creo variable global para grafico*/
+/*Segundo grafico*/
+let grafico2; /*creo variable global para grafico*/
 function displayChart2() {
-    if(grafico2){
+    if (grafico2) {
         grafico2.destroy();
     }
     const selectedCrypto2 = document.getElementById("cryptoSelect2").value;
     const dias2 = document.getElementById("dias2").value;//traigo los dias a desplegar desde el index
-    // Fetch cryptocurrency chart data based on the selected cryptocurrency
+
     fetch(`https://api.coingecko.com/api/v3/coins/${selectedCrypto2}/market_chart?vs_currency=usd&days=${dias2}`)
         .then(response => response.json())
         .then(data => {
             const chartData2 = data.prices.map(price => price[1]);
             //const labels = data.prices.map(price => new Date(price[0]));
             const timestamps2 = data.prices.map(price => new Date(price[0]));
-            // Format timestamps based on the selected time range
+
             const formattedLabels = formatTimestamps2(timestamps2)
-            // Extract the hour and minute components from the timestamps
+
             const hourMinuteLabels = timestamps2.map(timestamp2 => {
                 const options = { hour: 'numeric', minute: '2-digit' };
                 return new Intl.DateTimeFormat('en-US', options).format(timestamp2);
             });
-            // Create a Chart.js chart
+
             var ctx2 = document.getElementById("cryptoChart2").getContext("2d");
             grafico2 = new Chart(ctx2, {
                 type: "line",
@@ -202,7 +201,7 @@ function displayChart2() {
                     labels: formattedLabels,//hourMinuteLabels,
                     datasets: [
                         {
-                            label: `Precio de ${selectedCrypto2.toUpperCase() } en (usd)`,
+                            label: `Precio de ${selectedCrypto2.toUpperCase()} en (usd)`,
                             data: chartData2,
                             borderColor: "rgb(0, 164, 255)",
                             borderWidth: 1,
@@ -213,7 +212,7 @@ function displayChart2() {
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                   // mode:"no-cors",
+                    // mode:"no-cors",
                     pointStyle: false,
                     /*scales: {
                         x: {
@@ -229,7 +228,7 @@ function displayChart2() {
                 }
             });
         })
-       .catch(error => {
+        .catch(error => {
             console.error("Error fetching chart data: ", error);
         });
-    }
+}

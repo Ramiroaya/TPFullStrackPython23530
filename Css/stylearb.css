@@ -31,17 +31,18 @@ body {
 }
 
 button {
-    background-color: #af20d3;
+    background-color: #207cd3;
     color: #fff;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
+	border-color:#000;
 	text-align: right;
 }
 
 .dark-mode {
-    background-color: #000;
+    background-color: #00305d;
     color: #fff;
 }
 
@@ -91,6 +92,18 @@ header .textos-header{
 	text-align: center;
 }
 
+iframe{
+	display: flex;
+	height: 30%;
+	width: 30%;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	margin-left: 35%;
+	margin-right: 25%;
+}
+
 /*MAIN*/
 
 .comentarios{
@@ -130,21 +143,25 @@ header .textos-header{
 
 
 .desplegables{
-	background-color: #262626;
-	color:#ccdaf6;
+	background-color:#207cd3;
+	color:#ffffff;
 	font-size: large;
+	
 }
 
 .carta{
-	background-color: #1c1919;
-	margin: 1% 15% 5% 15%;
+	background-color: #d0e8ff;
+	margin-left: 15%;
+	margin-right: 15%;
+	margin-top: 1%;
 }
 
 /*FOOTER*/
 
 footer{
-	background-color: #8F7CEC;
-	padding: 1% 0% 1% 0%;
+ background-color: #207cd3;
+	padding: 5% 0 5% 0;
+
 	margin: auto;
 	overflow: hidden;
 }
@@ -184,4 +201,89 @@ h1{
 	color: #af20d3;
 	text-align: center;
 	
+}
+
+
+/* Media Query para pantallas más pequeñas (ej. tablets) */
+@media only screen and (max-width: 768px) {
+    .logo {
+        width: 20%; 
+    }
+
+    .barra-navegacion {
+        justify-content: center; 
+    }
+
+    nav a {
+        margin-right: 5px; 
+        font-size: 16px; 
+    }
+
+    header .textos-header a {
+        font-size: 24px; 
+    }
+
+    .comentarios {
+        padding-left: 5%; 
+    }
+
+    .crypto-nav-cont {
+        margin: 2% 5% 2% 5%; 
+    }
+
+    .crypto-nav {
+        text-align: center; 
+    }
+
+    .icon-crypto-nav {
+        width: 20px; 
+    }
+
+    .contenedor-cartas {
+        margin-left: 5%; 
+    }
+
+    .comentarios2 {
+        font-size: medium; 
+    }
+
+    .carta {
+        margin: 1% 5% 5% 5%; 
+    }
+}
+
+/* Media Query para pantallas aún más pequeñas (ej. smartphones) */
+@media only screen and (max-width: 480px) {
+    .logo {
+        width: 30%; 
+    }
+
+    nav a {
+        margin-right: 0; 
+        font-size: 14px; 
+    }
+
+    header .textos-header a {
+        font-size: 20px; 
+    }
+
+    .comentarios {
+        padding-left: 2%; 
+    }
+
+    .crypto-nav-cont {
+        margin: 2% 2% 2% 2%; 
+    }
+
+    .contenedor-cartas {
+        margin-left: 2%; 
+    }
+
+    .comentarios2 {
+        font-size: small; 
+    }
+
+    .carta {
+        margin: 1% 2% 5% 2%; 
+    }
 }
