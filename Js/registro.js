@@ -1,3 +1,58 @@
+const URL = "http://127.0.0.1:5000"
+
+document.getElementById('form').addEventListener('submit', function (event) {
+  Event.preventDefalt();
+
+  var formData = new FormData();
+  formData.append('usuario', document.getElementById('usuario').value);
+  formData.append('correo', document.getElementById('correo').value);
+  formData.append('ciudad', document.getElementById('ciudad').value);
+  formData.append('contrasena', document.getElementById('contrasena').value);
+  formData.append('confirme', document.getElementById('confirme').value);
+
+  //Solicitud POST al servidor
+  fetch(URL + 'usuario', {
+    method: 'POST',
+    body: formData
+  })
+
+  // Respuesta del servidor
+  .then(function (response) {
+    if (response.ok) {
+      return response.json();
+    } 
+    
+    else { //error, lanza una excepción para ser "catcheada" luego
+    throw new Error('El usuario ya existe.');
+    }
+  })
+
+  // Respuesta OK 
+  .then(function () {
+    alert('Usuario creado.');
+  })
+
+    // En caso de error
+    .catch(function (error) {
+      alert('El usuario ya existe.');
+      console.error('Error:', error);
+    })
+
+    // Limpiar el formulario en ambos casos
+    .finally(function () {
+      document.getElementById('usuario').value = "usuario";
+      document.getElementById('correo').value = "correo";
+      document.getElementById('ciudad').value = "ciudad";
+      document.getElementById('contrasena').value = "contrasena";
+      document.getElementById('confirme').value = "confirme";
+    });
+
+    // agregamos al servidor
+    formData.append('codigo', document.getElementById('codigo').value);
+})
+
+/*--------------*/
+
 const registros = [];
 export default registros;
 
