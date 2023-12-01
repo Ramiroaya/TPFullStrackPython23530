@@ -1,4 +1,4 @@
-const URL = "http://127.0.0.1:5000"
+const URL = "http://127.0.0.1:5000";
 
 document.getElementById('form').addEventListener('submit', function (event) {
   Event.preventDefalt();
@@ -8,10 +8,10 @@ document.getElementById('form').addEventListener('submit', function (event) {
   formData.append('correo', document.getElementById('correo').value);
   formData.append('ciudad', document.getElementById('ciudad').value);
   formData.append('contrasena', document.getElementById('contrasena').value);
-  formData.append('confirme', document.getElementById('confirme').value);
+  formData.append('confirmarContrasena', document.getElementById('confirmarContrasena').value);
 
   //Solicitud POST al servidor
-  fetch(URL + 'usuario', {
+  fetch(URL + '/usuario', {
     method: 'POST',
     body: formData
   })
@@ -20,31 +20,29 @@ document.getElementById('form').addEventListener('submit', function (event) {
   .then(function (response) {
     if (response.ok) {
       return response.json();
-    } 
-    
-    else { //error, lanza una excepción para ser "catcheada" luego
-    throw new Error('El usuario ya existe.');
+    } else { //error, lanza una excepción para ser "catcheada" luego
+      throw new Error('Error en el registro. El usuario ya existe.');
     }
   })
 
   // Respuesta OK 
-  .then(function () {
-    alert('Usuario creado.');
+  .then(function (data) {
+    alert('Usuario creado: ' + data.mensaje);
   })
 
     // En caso de error
     .catch(function (error) {
-      alert('El usuario ya existe.');
+      alert(error.message);
       console.error('Error:', error);
     })
 
     // Limpiar el formulario en ambos casos
     .finally(function () {
-      document.getElementById('usuario').value = "usuario";
-      document.getElementById('correo').value = "correo";
-      document.getElementById('ciudad').value = "ciudad";
-      document.getElementById('contrasena').value = "contrasena";
-      document.getElementById('confirme').value = "confirme";
+      document.getElementById('usuario').value = "";
+      document.getElementById('correo').value = "";
+      document.getElementById('ciudad').value = "";
+      document.getElementById('contrasena').value = "";
+      document.getElementById('confirmarContrasena').value = "";
     });
 
     // agregamos al servidor
