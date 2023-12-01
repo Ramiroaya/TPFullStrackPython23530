@@ -1,13 +1,12 @@
-class Usuarios:
+class Usuario:
     usuario = []
-    def nuevo_usuario(self, usuario, correo, ciudad, contrasena, confirme):
+    def nuevo_usuario(self, usuario, correo, ciudad, contrasena):
     
         nuevo_usuario = { # diccionario de datos de registro
         usuario: usuario,
         correo: correo,
         ciudad: ciudad,
-        contrasena: contrasena,
-        confirme: confirme,
+        contrasena: contrasena
     }
     
     def modificar_contrasena(self, contrasena, nueva_contrasena):

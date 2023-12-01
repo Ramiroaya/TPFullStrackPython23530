@@ -1,6 +1,20 @@
-//Funcion que chequea el usuario y contraseña ingresados en el array de registros.
+
+const URL = "http://127.0.0.1:5000";
+
+
+// Función que chequea el usuario y contraseña ingresados en el array de registros.
 function loginCheck(userName, password, registros) {
     return registros.find(record => record.userName === userName && record.password === password);
+}
+
+// Función para mostrar el saludo
+function mostrarSaludo(nombreUsuario) {
+    const saludoContainer = document.getElementById("saludo-container");
+
+    if (saludoContainer) {
+        saludoContainer.style.display = "block";
+        saludoContainer.innerText = "Hola " + nombreUsuario;
+    }
 }
 
 // Evento de clic en el botón de "Enviar"
@@ -10,23 +24,42 @@ document.getElementById("submit").addEventListener("click", function (event) {
     const userName = document.getElementById("userName").value;
     const password = document.getElementById("password").value;
 
-    // Recupera los registros almacenados en el Local Storage
-    const storedRegistros = JSON.parse(localStorage.getItem('registros')) || [];
+    // Validaciones
+    if (!userName || !password) {
+        alert("Por favor, completa todos los campos.");
+        return;
+    }
 
-    // Verifica el inicio de sesión con los registros recuperados
-    const userRecord = loginCheck(userName, password, storedRegistros);
+    
+    // Crear un objeto FormData para enviar al servidor
+    const formData = new FormData();
+    formData.append('email', userName);
+    formData.append('contrasena', password);
 
-    if (userRecord) {
-        alert("Login exitoso. Sesión Iniciada");
-
+    // Solicitud POST al servidor para el inicio de sesión
+    fetch(url + '/login', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Usuario o Contraseña incorrectos');
+        }
+    })
+    .then(data => {
+        alert(data.mensaje);
+        
         // Almacenar el nombre de usuario en el Local Storage
         localStorage.setItem('nombreUsuario', userName);
 
         // Redirigir a index.html
-        window.location.href = "index.html";
-    } else {
-        alert("Usuario o Contraseña incorrectos");
-    }
+        window.location.replace("index.html");
+    })
+    .catch(error => {
+        alert(error.message);
+    });
 });
 
 // Verificar si hay un usuario logueado al cargar la página principal (index.html)
@@ -34,13 +67,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const nombreUsuario = localStorage.getItem('nombreUsuario');
 
     if (nombreUsuario) {
-        // Mostrar el saludo en la barra de navegación
-        const saludoContainer = document.getElementById("saludo-container");
-
-        if (saludoContainer) {
-            saludoContainer.style.display = "block";
-            saludoContainer.innerText = "Hola " + nombreUsuario;
-        }
+        mostrarSaludo(nombreUsuario);
     }
 });
-
