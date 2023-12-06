@@ -81,7 +81,7 @@ class Conector:
         if usuario_existe:
             return False
         sql = "INSERT INTO usuario (nombre, ciudad, email, contrasena) VALUES (%s, %s, %s, %s)"
-        valores = (nombre, ciudad, email, contrasena)
+        valores = (nombre, ciudad, mail, contrasena)
         self.cursor.execute(sql, valores)
         self.conn.commit()
         return True
@@ -128,14 +128,14 @@ conexion = Conector(
 # Metodo para listar Usuarios
 @app.route('/usuario', metthods=["GET"])
 def listar_usuarios():
-    usuario = conector.listar_usuarios()
+    usuario = Conector.listar_usuarios()
     return jsonify(usuario)
 
 
 # Metodo para buscar un Usuario por su Id
 @app.route('/usuario/<int:idUsuario>', methods=['GET'])
 def mostrar_usuario(email):
-    usuario = conector.consultar_usuario(email)
+    usuario = Conector.consultar_usuario(email)
     if usuario:
         return jsonify(usuario)
     else:
@@ -153,7 +153,7 @@ def nuevo_usuario():
     contrasena = request.form.get('contrasena')
     confirmarContrasena = request.form.get('confirmarContrasena')
 
-    if conector.agregar_usuario(nombre, ciudad, email, contrasena):
+    if Conector.agregar_usuario(usuario, ciudad, email, contrasena):
         return jsonify({"mensaje": "Usuario agregado"}), 201
     else:
         return jsonify({"mensaje": "Usuario ya existente"}), 400
@@ -190,7 +190,7 @@ def modificar_usuario(idUsuario):
     nueva_contrasena = request.form.get("contrasena")
 
     # Actualizando Usuario
-    if conector.modificar_usuario(idUsuario, nuevo_nombre, nueva_ciudad, nuevo_email, nueva_contrasena):
+    if Conector.modificar_usuario(idUsuario, nuevo_nombre, nueva_ciudad, nuevo_email, nueva_contrasena):
         return jsonify({"mensaje": "Se ha actualizado correctamente el usuario."}), 200
     else:
         return jsonify({"mensaje": "No se pudo actualizar el usuario"}), 404
@@ -199,17 +199,14 @@ def modificar_usuario(idUsuario):
 # Endpoint para eliminar un Usuario
 @app.route("/usuario/<int:idUsuario>", methods=["DELETE"])
 def eliminar_usuario(idUsuario):
-    if usuario:
-        if conector.eliminar_usuario(idUsuario):
+    if idUsuario:
+        if Conector.eliminar_usuario(idUsuario):
             return jsonify({"mensaje": "Usuario eliminado"}), 200
         else:
             return jsonify({"mensaje": "Error al eliminar el usuario"}), 500
     else:
         return jsonify({"mensaje": "El usuario no existe"}), 404
 
-
-
-   
 
 if __name__ == '__main__':
     app.run(debug=True)

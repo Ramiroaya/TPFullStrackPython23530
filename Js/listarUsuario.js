@@ -21,7 +21,7 @@ fetch(URL + 'usuario')
             '<td>' + usuario.email + '</td>' +
             '<td>' + usuario.contrasena + '</td>'
             /*Una vez que se crea la fila con el contenido del Usuario,
-             se agrega a la tabla utilizando el método appendChild del elemento
+            se agrega a la tabla utilizando el método appendChild del elemento
             tablaProductos.*/
             
             tablaUsuarios.appendChild(fila);

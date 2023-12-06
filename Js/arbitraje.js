@@ -1,3 +1,4 @@
+const URL = "http://127.0.0.1:5000";
 //Access-Control-Allow-Origin: *;
 //***** cuenta regresiva actualizacion*/////////////
 function regresiva() {
