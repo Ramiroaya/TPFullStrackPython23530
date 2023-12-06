@@ -1,9 +1,9 @@
 const URL = "http://127.0.0.1:5000";
 
-document.getElementById('form').addEventListener('submit', function (event) {
-  Event.preventDefalt();
+document.getElementById('form').addEventListener('submit', async function (event) {
+  event.preventDefault();
 
-  var formData = new FormData();
+  const formData = new FormData();
   formData.append('usuario', document.getElementById('usuario').value);
   formData.append('correo', document.getElementById('correo').value);
   formData.append('ciudad', document.getElementById('ciudad').value);
@@ -11,43 +11,29 @@ document.getElementById('form').addEventListener('submit', function (event) {
   formData.append('confirmarContrasena', document.getElementById('confirmarContrasena').value);
 
   //Solicitud POST al servidor
-  fetch(URL + '/usuario', {
-    method: 'POST',
-    body: formData
-  })
+  try {
+    const response = await fetch(URL + '/usuario', {
+      method: 'POST',
+      body: formData,
+  });
 
-  // Respuesta del servidor
-  .then(function (response) {
     if (response.ok) {
-      return response.json();
+      const data =  await response.json();
+      alert('Usuario creado:' + data.mensaje);
     } else { //error, lanza una excepción para ser "catcheada" luego
       throw new Error('Error en el registro. El usuario ya existe.');
     }
-  })
-
-  // Respuesta OK 
-  .then(function (data) {
-    alert('Usuario creado: ' + data.mensaje);
-  })
-
-    // En caso de error
-    .catch(function (error) {
-      alert(error.message);
-      console.error('Error:', error);
-    })
-
-    // Limpiar el formulario en ambos casos
-    .finally(function () {
+  } catch(error) {
+    alert(error.message);
+    console.error('Error:', error);
+  } finally {
       document.getElementById('usuario').value = "";
       document.getElementById('correo').value = "";
       document.getElementById('ciudad').value = "";
       document.getElementById('contrasena').value = "";
       document.getElementById('confirmarContrasena').value = "";
-    });
-
-    // agregamos al servidor
-    formData.append('codigo', document.getElementById('codigo').value);
-})
+    }
+  });
 
 /*--------------*/
 
@@ -106,3 +92,4 @@ document.addEventListener("DOMContentLoaded", function(){
     }
   });
 });
+

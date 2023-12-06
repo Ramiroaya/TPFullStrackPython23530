@@ -1,4 +1,5 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
+from flask_wtf import CSRFProtect
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
 import mysql.connector
@@ -7,6 +8,7 @@ import os
 import time
 
 app = Flask(__name__)
+CSRFProtect(app)
 CORS(app)
 
 # Configuración de la base de datos
@@ -45,7 +47,7 @@ class Conector:
 
     #Metodo para consultar un Usuario por su Id.
     def consultar_usuario(self, email):
-        self.cursor.execute(f"SELECT * FROM usuario WHERE email = {email}")
+        self.cursor.execute("SELECT * FROM usuario WHERE email = %s",  (email,))
         return self.cursor.fetchone()
 
 
@@ -73,15 +75,20 @@ class Conector:
         usuarios = self.cursor.fetchall()
         return usuarios
 
+    # Metodo para encryptar password
+    def hash_password(self, password):
+        hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+        return hashed_password.decode('utf-8')
 
     #Metodo para agregar un Usuario.
-    def agregar_usuario(self, nombre, ciudad, mail, contrasena):
-        self.cursor.execute("SELECT * FROM usuario WHERE email = {email}")
+    def agregar_usuario(self, nombre, ciudad, email, contrasena):
+        self.cursor.execute("SELECT * FROM usuario WHERE email =%s", (email))
         usuario_existe = self.cursor.fetchone()
         if usuario_existe:
             return False
+        contrasena_hasheada = self.hash_password(contrasena)
         sql = "INSERT INTO usuario (nombre, ciudad, email, contrasena) VALUES (%s, %s, %s, %s)"
-        valores = (nombre, ciudad, mail, contrasena)
+        valores = (nombre, ciudad, email, contrasena_hasheada)
         self.cursor.execute(sql, valores)
         self.conn.commit()
         return True
@@ -89,7 +96,7 @@ class Conector:
 
 
     #Metodo para modificar un Usuario.
-    def modificar_usuario(self, codigo, nuevo_nombre, nueva_ciudad, nuevo_email, nueva_contrasena):
+    def modificar_usuario(self, email, nuevo_nombre, nueva_ciudad, nuevo_email, nueva_contrasena):
         sql = "UPDATE usuario SET nombre= %s, ciudad= %s, email= %s, contrasena= %s" 
         valores = (nuevo_nombre, nueva_ciudad, nuevo_email, nueva_contrasena)
         self.cursor.execute(sql, valores)
@@ -99,8 +106,8 @@ class Conector:
 
 
     # Metodo para eliminar un Usuario
-    def eliminar_usuario(self, codigo):
-        self.conn.execute(f"DELETE FROM usuario WHERE codigo = {codigo}")
+    def eliminar_usuario(self, email):
+        self.cursor.execute("DELETE FROM usuario WHERE email = %s", (email))
         self.conn.commit()
         return self.cursor.rowcount > 0
 
@@ -126,20 +133,20 @@ conexion = Conector(
 
 
 # Metodo para listar Usuarios
-@app.route('/usuario', metthods=["GET"])
+@app.route('/usuario', methods=["GET"])
 def listar_usuarios():
-    usuario = Conector.listar_usuarios()
+    usuario = conexion.listar_usuarios()
     return jsonify(usuario)
 
 
 # Metodo para buscar un Usuario por su Id
-@app.route('/usuario/<int:idUsuario>', methods=['GET'])
+@app.route('/usuario/<string:email>', methods=['GET'])
 def mostrar_usuario(email):
-    usuario = Conector.consultar_usuario(email)
+    usuario = conexion.consultar_usuario(email)
     if usuario:
         return jsonify(usuario)
     else:
-        return "Usuario no encontrado", 404
+        abort(404, description="Usuario no encontrado")
 
 
 
@@ -153,7 +160,7 @@ def nuevo_usuario():
     contrasena = request.form.get('contrasena')
     confirmarContrasena = request.form.get('confirmarContrasena')
 
-    if Conector.agregar_usuario(usuario, ciudad, email, contrasena):
+    if conexion.agregar_usuario(usuario, ciudad, email, contrasena):
         return jsonify({"mensaje": "Usuario agregado"}), 201
     else:
         return jsonify({"mensaje": "Usuario ya existente"}), 400
@@ -181,8 +188,8 @@ def login():
 
 
 # Endpoint para modificar un Usuario
-@app.route('/usuario/<int:idUsuario', methods=['PUT'])
-def modificar_usuario(idUsuario):
+@app.route('/usuario/<string:email', methods=['PUT'])
+def modificar_usuario(email):
     # Recojo los datos del Formulario
     nuevo_nombre = request.form.get("nombre")
     nueva_ciudad = request.form.get("ciudad")
@@ -190,7 +197,7 @@ def modificar_usuario(idUsuario):
     nueva_contrasena = request.form.get("contrasena")
 
     # Actualizando Usuario
-    if Conector.modificar_usuario(idUsuario, nuevo_nombre, nueva_ciudad, nuevo_email, nueva_contrasena):
+    if conexion.modificar_usuario(email, nuevo_nombre, nueva_ciudad, nuevo_email, nueva_contrasena):
         return jsonify({"mensaje": "Se ha actualizado correctamente el usuario."}), 200
     else:
         return jsonify({"mensaje": "No se pudo actualizar el usuario"}), 404
@@ -198,9 +205,9 @@ def modificar_usuario(idUsuario):
 
 # Endpoint para eliminar un Usuario
 @app.route("/usuario/<int:idUsuario>", methods=["DELETE"])
-def eliminar_usuario(idUsuario):
+def eliminar_usuario(email):
     if idUsuario:
-        if Conector.eliminar_usuario(idUsuario):
+        if conexion.eliminar_usuario(idUsuario):
             return jsonify({"mensaje": "Usuario eliminado"}), 200
         else:
             return jsonify({"mensaje": "Error al eliminar el usuario"}), 500
