@@ -1,5 +1,6 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, abort
 from flask_wtf import CSRFProtect
+import bcrypt
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
 import mysql.connector
@@ -8,6 +9,7 @@ import os
 import time
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'Full_Stack_Python'
 CSRFProtect(app)
 CORS(app)
 
@@ -21,28 +23,31 @@ class Conector:
             database=database
         )
 
-    self.cursor = self.conn.cursor(dictionary=True)
+        self.cursor = self.conn.cursor(dictionary=True)
 
-    try:
-        self.cursor.execute(f"USE {database}")
-    except mysql.connector.Error as err:
-        if err.errno == mysql.connector.errorcode.ER_BAD_DB_ERROR:
-            self.cursor.execute(f"CREATE DATABASE {database}")
-            self.conn.database = database
-        else:
-            raise err
+        try:
+            self.cursor.execute(f"USE {database}")
+        except mysql.connector.Error as err:
+            if err.errno == mysql.connector.errorcode.ER_BAD_DB_ERROR:
+                self.cursor.execute(f"CREATE DATABASE {database}")
+                self.conn.database = database
+            else:
+                raise err
 
 
-    self.cursor.execute('''CREATE TABLE IF NOT EXISTS usuario (
-        idUsusario INT PRIMARY KEY AUTOINCREMENT,
-        nombre VARCHAR(255) NOT NULL,
-        ciudad  varchar(255),
-        email VARCHAR(255) NOT NULL,
-        contrasena VARCHAR(255) NOT NULL)''')
-    self.conn.commit()
+        self.cursor.execute('''
+            CREATE TABLE IF NOT EXISTS usuario (
+                idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+                nombre VARCHAR(255) NOT NULL,
+                ciudad VARCHAR(255) NOT NULL,
+                email VARCHAR(255) NOT NULL,
+                contrasena VARCHAR(255) NOT NULL
+            )
+        ''')
+        self.conn.commit()
 
-    self.cursor.close()
-    self.cursor = self.conn.cursor(dictionary=True)
+        self.cursor.close()
+        self.cursor = self.conn.cursor(dictionary=True)
 
 
     #Metodo para consultar un Usuario por su Id.
@@ -132,6 +137,13 @@ conexion = Conector(
     )  
 
 
+
+# Ruta para la página de inicio
+@app.route('/')
+def home():
+    return jsonify({"mensaje": "¡Bienvenido a la aplicación!"})
+
+    
 # Metodo para listar Usuarios
 @app.route('/usuario', methods=["GET"])
 def listar_usuarios():
@@ -154,13 +166,16 @@ def mostrar_usuario(email):
 @app.route("/usuario", methods=["POST"])
 def nuevo_usuario():
     # Levanta los datos del formulario
-    usuario = request.form.get('usuario')
+    nombre = request.form.get('nombre')
     ciudad = request.form.get('ciudad')
     email = request.form.get('email')
     contrasena = request.form.get('contrasena')
     confirmarContrasena = request.form.get('confirmarContrasena')
 
-    if conexion.agregar_usuario(usuario, ciudad, email, contrasena):
+    if contrasena != confirmarContrasena:
+        return jsonify({"mensaje": "Las contraseñas no coinciden"}), 400
+
+    if conexion.agregar_usuario(nombre, ciudad, email, contrasena):
         return jsonify({"mensaje": "Usuario agregado"}), 201
     else:
         return jsonify({"mensaje": "Usuario ya existente"}), 400
@@ -177,8 +192,8 @@ def login():
     contrasena = data['contrasena']
 
     # Verificar las credenciales en la base de datos
-    cursor.execute("SELECT * FROM usuario WHERE email = %s AND contrasena = %s", (email, contrasena))
-    usuario = cursor.fetchone()
+    conexion.cursor.execute("SELECT * FROM usuario WHERE email = %s AND contrasena = %s", (email, contrasena))
+    usuario = conexion.cursor.fetchone()
 
     if usuario:
         return jsonify({'mensaje': 'Inicio de sesión exitoso'})
@@ -188,7 +203,7 @@ def login():
 
 
 # Endpoint para modificar un Usuario
-@app.route('/usuario/<string:email', methods=['PUT'])
+@app.route('/usuario/<string:email>', methods=['PUT'])
 def modificar_usuario(email):
     # Recojo los datos del Formulario
     nuevo_nombre = request.form.get("nombre")
@@ -204,10 +219,10 @@ def modificar_usuario(email):
 
 
 # Endpoint para eliminar un Usuario
-@app.route("/usuario/<int:idUsuario>", methods=["DELETE"])
+@app.route("/usuario/<string:email>", methods=["DELETE"])
 def eliminar_usuario(email):
     if idUsuario:
-        if conexion.eliminar_usuario(idUsuario):
+        if conexion.eliminar_usuario(email):
             return jsonify({"mensaje": "Usuario eliminado"}), 200
         else:
             return jsonify({"mensaje": "Error al eliminar el usuario"}), 500
