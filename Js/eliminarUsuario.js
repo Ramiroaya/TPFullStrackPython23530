@@ -50,4 +50,9 @@ fetch(URL + `usuario/${email}`, { method: 'DELETE' })
 });
 app.mount('body');
 
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
 
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+});
