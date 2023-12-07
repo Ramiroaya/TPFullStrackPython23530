@@ -6,14 +6,24 @@ const URL = "http://127.0.0.1:5000/";
 document.getElementById('formulario').addEventListener('submit', function
     (event) {
     event.preventDefault(); // Evitamos que se envie el form
+
+    var contrasena = document.getElementById('contrasena').value;
+    var confirmarContrasena = document.getElementById('confirmarContrasena').value;
+
+    if (contrasena !== confirmarContrasena) {
+        alert('Las contraseñas no coinciden.');
+        return;
+    }
     var formData = new FormData();
     formData.append('nombre', document.getElementById('nombre').value);
     formData.append('ciudad', document.getElementById('ciudad').value);
     formData.append('email', document.getElementById('email').value);
     formData.append('contrasena', document.getElementById('contrasena').value);
     formData.append('confirmarContrasena', document.getElementById('confirmarContrasena').value);
+
+
     // Realizamos la solicitud POST al servidor
-    fetch(URL + 'productos', {
+    fetch(URL + 'usuario', {
         method: 'POST',
         body: formData // Aquí enviamos formData en lugar de JSON
     })
@@ -45,6 +55,6 @@ document.getElementById('formulario').addEventListener('submit', function
             document.getElementById('ciudad').value = "";
             document.getElementById('email').value = "";
             document.getElementById('contrasena').value = "";
-            document.getElementById('repetirContrasena').value = "";
+            document.getElementById('confirmarContrasena').value = "";
         });
 })
