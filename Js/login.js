@@ -24,6 +24,8 @@ document.getElementById("submit").addEventListener("click", function (event) {
     const userName = document.getElementById("userName").value;
     const password = document.getElementById("password").value;
 
+    window.location.replace("modificacionDatosPorUsuario.html");
+
     // Validaciones
     if (!userName || !password) {
         alert("Por favor, completa todos los campos.");
