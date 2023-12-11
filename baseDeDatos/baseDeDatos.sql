@@ -13,3 +13,8 @@ create table usuario(
     email varchar(255) not null,
 	contraseña varchar(255) not null
     );
+    
+    
+-- Cambiamos el nombre de "contraseña" a "contrasena".
+ALTER TABLE usuario
+CHANGE COLUMN contraseña contrasena VARCHAR(255) NOT NULL;

@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, render_template, abort
-from flask_wtf import CSRFProtect
-import bcrypt
+from flask_bcrypt import Bcrypt
+
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
 import mysql.connector
@@ -9,8 +9,6 @@ import os
 import time
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'Full_Stack_Python'
-CSRFProtect(app)
 CORS(app)
 
 # Configuración de la base de datos
@@ -22,6 +20,7 @@ class Conector:
             password=password,
             database=database
         )
+        self.bcrypt = Bcrypt(app)
 
         self.cursor = self.conn.cursor(dictionary=True)
 
@@ -50,6 +49,20 @@ class Conector:
         self.cursor = self.conn.cursor(dictionary=True)
 
 
+     #Metodo para agregar un Usuario.
+    def agregar_usuario(self, nombre, ciudad, email, contrasena):
+        self.cursor.execute("SELECT * FROM usuario WHERE email =%s", (email))
+        usuario_existe = self.cursor.fetchone()
+        if usuario_existe:
+            return False
+        contrasena_hasheada = self.hash_password(contrasena)
+        sql = "INSERT INTO usuario (nombre, ciudad, email, contrasena) VALUES (%s, %s, %s, %s)"
+        valores = (nombre, ciudad, email, contrasena_hasheada)
+        self.cursor.execute(sql, valores)
+        self.conn.commit()
+        return True
+
+
     #Metodo para consultar un Usuario por su Id.
     def consultar_usuario(self, email):
         self.cursor.execute("SELECT * FROM usuario WHERE email = %s",  (email,))
@@ -57,7 +70,7 @@ class Conector:
 
 
     # Metodo para mostrar un Usuario
-    def mostrar_usuarios(self, email):
+    def mostrar_usuario(self, email):
         # Mostramos los datos de un Usuario a partir de su Email
         usuario = self.consultar_usuario(email)
         if usuario:
@@ -70,33 +83,20 @@ class Conector:
         else:
             print("Usuario no encontrado.")
 
-
-    
     
 
     #Metodo para listar Usuarios
     def listar_usuarios(self):
         self.cursor.execute("SELECT * FROM usuario")
-        usuarios = self.cursor.fetchall()
-        return usuarios
+        usuario = self.cursor.fetchall()
+        return usuario
+
+
 
     # Metodo para encryptar password
     def hash_password(self, password):
-        hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
-        return hashed_password.decode('utf-8')
-
-    #Metodo para agregar un Usuario.
-    def agregar_usuario(self, nombre, ciudad, email, contrasena):
-        self.cursor.execute("SELECT * FROM usuario WHERE email =%s", (email))
-        usuario_existe = self.cursor.fetchone()
-        if usuario_existe:
-            return False
-        contrasena_hasheada = self.hash_password(contrasena)
-        sql = "INSERT INTO usuario (nombre, ciudad, email, contrasena) VALUES (%s, %s, %s, %s)"
-        valores = (nombre, ciudad, email, contrasena_hasheada)
-        self.cursor.execute(sql, valores)
-        self.conn.commit()
-        return True
+        return self.bcrypt.generate_password_hash(password).decode('utf-8')
+   
     
 
 
@@ -129,30 +129,31 @@ class Conector:
 # Cuerpo del programa
 #--------------------------------------------------------------------
 # Creamos una instancia de Conector
+#conexion = Conector(host='localhost', user='root', password='root', database='cryptoMercado')  
 conexion = Conector(
-        host="localhost",
-        user="root",
-        password="root",
-        database="cryptoMercado"
+        host='ayacodoacodo.mysql.pythonanywhere-services.com',
+        user='ayacodoacodo',
+        password='crypto2023',
+        database='ayacodoacodo$cryptoMercado'
     )  
 
 
 
 # Ruta para la página de inicio
 @app.route('/')
-def home():
-    return jsonify({"mensaje": "¡Bienvenido a la aplicación!"})
+def index():
+    return render_template('/index.html')
 
     
 # Metodo para listar Usuarios
-@app.route('/usuario', methods=["GET"])
+@app.route("/usuario", methods=["GET"])
 def listar_usuarios():
-    usuario = conexion.listar_usuarios()
-    return jsonify(usuario)
+    usuarios = conexion.listar_usuarios()
+    return jsonify(usuarios)
 
 
 # Metodo para buscar un Usuario por su Id
-@app.route('/usuario/<string:email>', methods=['GET'])
+@app.route("/usuario/<string:email>", methods=["GET"])
 def mostrar_usuario(email):
     usuario = conexion.consultar_usuario(email)
     if usuario:
@@ -171,6 +172,7 @@ def nuevo_usuario():
     email = request.form.get('email')
     contrasena = request.form.get('contrasena')
     confirmarContrasena = request.form.get('confirmarContrasena')
+    print(nombre)
 
     if contrasena != confirmarContrasena:
         return jsonify({"mensaje": "Las contraseñas no coinciden"}), 400
@@ -184,12 +186,11 @@ def nuevo_usuario():
 
 
 # Endpoint para el inicio de sesión
-@app.route('/login', methods=['POST'])
+@app.route("/login", methods=["POST"])
 def login():
-    data = request.form
 
-    email = data['email']
-    contrasena = data['contrasena']
+    email = request.form.get('email')
+    contrasena = request.form.get('contrasena')
 
     # Verificar las credenciales en la base de datos
     conexion.cursor.execute("SELECT * FROM usuario WHERE email = %s AND contrasena = %s", (email, contrasena))
@@ -221,13 +222,12 @@ def modificar_usuario(email):
 # Endpoint para eliminar un Usuario
 @app.route("/usuario/<string:email>", methods=["DELETE"])
 def eliminar_usuario(email):
-    if idUsuario:
-        if conexion.eliminar_usuario(email):
-            return jsonify({"mensaje": "Usuario eliminado"}), 200
-        else:
-            return jsonify({"mensaje": "Error al eliminar el usuario"}), 500
+    
+    if conexion.eliminar_usuario(email):
+        return jsonify({"mensaje": "Usuario eliminado"}), 200
     else:
-        return jsonify({"mensaje": "El usuario no existe"}), 404
+        return jsonify({"mensaje": "Error al eliminar el usuario"}), 500
+   
 
 
 if __name__ == '__main__':

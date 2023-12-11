@@ -1,5 +1,5 @@
 
-const URL = "http://127.0.0.1:5000";
+const URL = "https://ayacodoacodo.pythonanywhere.com";
 
 
 // Función que chequea el usuario y contraseña ingresados en el array de registros.
@@ -39,7 +39,7 @@ document.getElementById("submit").addEventListener("click", function (event) {
     formData.append('contrasena', password);
 
     // Solicitud POST al servidor para el inicio de sesión
-    fetch(url + '/login', {
+    fetch(URL + 'login', {
         method: 'POST',
         body: formData
     })
