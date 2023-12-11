@@ -1,4 +1,4 @@
-const URL = "https://ayacodoacodo.pythonanywhere.com";
+const URL = "https://ayacodoacodo.pythonanywhere.com/";
 
 document.getElementById('registration-form').addEventListener('submit', async function (event) {
   event.preventDefault();
