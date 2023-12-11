@@ -1,4 +1,4 @@
-const URL = "https://ayacodoacodo.pythonanywhere.com";
+const URL = "https://ayacodoacodo.pythonanywhere.com/";
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 

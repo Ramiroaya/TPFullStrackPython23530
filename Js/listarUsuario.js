@@ -1,4 +1,4 @@
-const URL = "https://ayacodoacodo.pythonanywhere.com";
+const URL = "https://ayacodoacodo.pythonanywhere.com/";
 
 
 // Realizamos la solicitud GET al servidor para obtener todos los Usuarios
