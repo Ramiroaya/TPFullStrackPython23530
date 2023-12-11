@@ -13,13 +13,11 @@ CORS(app)
 
 # Configuración de la base de datos
 class Conector:
-    def __init__(self, host, user, password, database, port):
+    def __init__(self, host, user, password, database):
         self.conn = mysql.connector.connect(
             host=host,
             user=user,
-            password=password,
-            database=database,
-            port= 3306
+            password=password
         )
         self.bcrypt = Bcrypt(app)
 
@@ -138,17 +136,13 @@ class Conector:
 #--------------------------------------------------------------------
 # Creamos una instancia de Conector
 #conexion = Conector(host='localhost', user='root', password='root', database='cryptoMercado')  
-try:
-    conexion = Conector(
-        host='ayacodoacodo.mysql.pythonanywhere-services.com',
-        user='ayacodoacodo',
-        password='crypto2023',
-        database='ayacodoacodo$cryptoMercado',
-        port= 3306
-    )  
-    print("Conexión exitosa")
-except mysql.connector.Error as err:
-    print(f"Error de conexión: {err}")
+conexion = Conector(
+    host='ayacodoacodo.mysql.pythonanywhere-services.com',
+    user='ayacodoacodo',
+    password='crypto2023',
+    database='ayacodoacodo$cryptoMercado'
+)  
+
 
 
 

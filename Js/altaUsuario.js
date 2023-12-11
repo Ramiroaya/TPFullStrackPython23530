@@ -19,7 +19,7 @@ document.getElementById('formulario').addEventListener('submit', async function 
     formData.append('confirmarContrasena', confirmarContrasena);
 
     try {
-        const response = await fetch(`${URL}usuario`, {
+        const response = await fetch(URL + 'usuario', {
             method: 'POST',
             body: formData
         });
