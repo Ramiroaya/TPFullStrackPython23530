@@ -63,6 +63,13 @@ class Conector:
         return True
 
 
+    #Metodo para autenticar Usuario.
+    def autenticar_usuario(self, email, contrasena):
+        self.cursor.execute("SELECT * FROM usuario WHERE email = %s AND contrasena = %s", (email, contrasena))
+        usuario = self.cursor.fetchone()
+        return usuario
+
+
     #Metodo para consultar un Usuario por su Id.
     def consultar_usuario(self, email):
         self.cursor.execute("SELECT * FROM usuario WHERE email = %s",  (email,))
@@ -188,13 +195,12 @@ def nuevo_usuario():
 # Endpoint para el inicio de sesión
 @app.route("/login", methods=["POST"])
 def login():
-
+    # Levanta los datos del formulario
     email = request.form.get('email')
     contrasena = request.form.get('contrasena')
 
-    # Verificar las credenciales en la base de datos
-    conexion.cursor.execute("SELECT * FROM usuario WHERE email = %s AND contrasena = %s", (email, contrasena))
-    usuario = conexion.cursor.fetchone()
+    # Utilizar el método de autenticación de la clase Conector
+    usuario = conexion.autenticar_usuario(email, contrasena)
 
     if usuario:
         return jsonify({'mensaje': 'Inicio de sesión exitoso'})
