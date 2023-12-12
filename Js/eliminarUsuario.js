@@ -16,9 +16,7 @@ const app = Vue.createApp({
                     if (response.ok) { return response.json(); }
                 })
                 .then(data => {
-                    // El código Vue itera este elemento para generar la
-
-                    tabla
+                    // El código Vue itera este elemento para generar la tabla
 
                     this.usuarios = data;
                 })
@@ -30,7 +28,7 @@ const app = Vue.createApp({
         eliminarUsuario(email) {
             if (confirm('¿Estás seguro de que quieres eliminar este usuario ? ')) {
 
-fetch(URL + `usuario/${email}`, { method: 'DELETE' })
+                fetch(URL + `usuario/${email}`, { method: 'DELETE' })
                     .then(response => {
                         if (response.ok) {
                             this.usuarios = this.usuarios.filter(usuario => usuario.email !== email);
@@ -40,12 +38,12 @@ fetch(URL + `usuario/${email}`, { method: 'DELETE' })
                     .catch(error => {
                         alert(error.message);
                     });
+            }
         }
-    }
-},
+    },
     mounted() {
-    //Al cargar la página, obtenemos la lista de productos
-    this.obtenerUsuarios();
+        //Al cargar la página, obtenemos la lista de productos
+        this.obtenerUsuarios();
     }
 });
 app.mount('body');
