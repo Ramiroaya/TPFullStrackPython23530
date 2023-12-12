@@ -22,7 +22,7 @@ fetch(URL + 'usuario')
             fila.innerHTML = '<td>' + usuario.idUsuario + '</td>' +
                 '<td>' + usuario.nombre + '</td>' +
                 '<td>' + usuario.ciudad + '</td>' +
-                '<td>' + usuario.email + '</td>'
+                '<td>' + usuario.email + '</td>';
 
             //Una vez que se crea la fila con el contenido del producto,se agrega a la tabla utilizando el método appendChild del elemento tablaProductos.
 
@@ -35,9 +35,9 @@ fetch(URL + 'usuario')
         console.error('Error:', error);
     })
 
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-    
-    themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-    });
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+});

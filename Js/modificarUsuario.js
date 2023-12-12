@@ -16,7 +16,7 @@ const app = Vue.createApp({
       ciudad: '',
       email: '',
       contrasena: '',
-      repetirContrasena: '',
+      confirmarContrasena: '',
       mostrarDatosUsuario: false,
     };
   },
@@ -58,7 +58,7 @@ const app = Vue.createApp({
       formData.append('ciudad', this.ciudad);
       formData.append('email', this.email);
       formData.append('contrasena', this.contrasena);
-      formData.append('precio', this.precio);
+
 
       //Utilizamos fetch para realizar una solicitud PUT a la API y guardar los cambios.
 

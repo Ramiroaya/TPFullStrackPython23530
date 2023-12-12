@@ -18,26 +18,32 @@ document.getElementById('formulario').addEventListener('submit', async function 
     formData.append('contrasena', contrasena);
     formData.append('confirmarContrasena', confirmarContrasena);
 
-    try {
-        const response = await fetch(URL + 'usuario', {
+    fetch(URL + 'usuario', {
             method: 'POST',
             body: formData
+        })
+
+        .then(function(response) {
+            if (response.ok) {
+                return response.json();
+            }else {
+                throw new Error("Error al agregar el usuario");
+            }
+        })
+
+        .then(function () {
+            alert('Usuario agregado correctamente.');
+    })
+        . catch (function (error) {
+            alert('Error al agregar el Usuario');
+            console.error('Error:', error);
+    })
+        . finally(function () {
+            // Limpiar el formulario en ambos casos (éxito o error)
+            document.getElementById('nombre').value = "";
+            document.getElementById('ciudad').value = "";
+            document.getElementById('email').value = "";
+            document.getElementById('contrasena').value = "";
+            document.getElementById('confirmarContrasena').value = "";
         });
-
-        if (!response.ok) {
-            throw new Error(`Error al agregar el usuario: ${response.statusText}`);
-        }
-
-        alert('Usuario agregado correctamente.');
-    } catch (error) {
-        alert(error.message);
-        console.error('Error:', error);
-    } finally {
-        // Limpiar el formulario en ambos casos (éxito o error)
-        document.getElementById('nombre').value = "";
-        document.getElementById('ciudad').value = "";
-        document.getElementById('email').value = "";
-        document.getElementById('contrasena').value = "";
-        document.getElementById('confirmarContrasena').value = "";
-    }
 });
