@@ -21,11 +21,12 @@ class Conector:
         )
         self.bcrypt = Bcrypt(app)
 
-        self.cursor = self.conn.cursor(dictionary=True)
+        self.cursor = self.conn.cursor()
 
         try:
             self.cursor.execute(f"USE {database}")
         except mysql.connector.Error as err:
+            # Si la base de datos no existe, la creamos
             if err.errno == mysql.connector.errorcode.ER_BAD_DB_ERROR:
                 self.cursor.execute(f"CREATE DATABASE {database}")
                 self.conn.database = database
@@ -50,14 +51,15 @@ class Conector:
 
      #Metodo para agregar un Usuario.
     def agregar_usuario(self, nombre, ciudad, email, contrasena):
-        self.cursor.execute("SELECT * FROM usuario WHERE email =%s", (email))
+
+        self.cursor.execute(f"SELECT * FROM usuario WHERE email = {email}")
         usuario_existe = self.cursor.fetchone()
         if usuario_existe:
             return False
         contrasena_hasheada = self.hash_password(contrasena)
         sql = "INSERT INTO usuario (nombre, ciudad, email, contrasena) VALUES (%s, %s, %s, %s)"
         valores = (nombre, ciudad, email, contrasena_hasheada)
-        self.cursor.execute(sql, valores)
+        self.cursor.execute(sql,valores)
         self.conn.commit()
         return True
 
@@ -71,7 +73,7 @@ class Conector:
 
     #Metodo para consultar un Usuario por su Id.
     def consultar_usuario(self, email):
-        self.cursor.execute("SELECT * FROM usuario WHERE email = %s",  (email,))
+        self.cursor.execute(f"SELECT * FROM usuario WHERE email = {email}")
         return self.cursor.fetchone()
 
 
@@ -94,8 +96,8 @@ class Conector:
     #Metodo para listar Usuarios
     def listar_usuarios(self):
         self.cursor.execute("SELECT * FROM usuario")
-        usuario = self.cursor.fetchall()
-        return usuario
+        usuarios = self.cursor.fetchall()
+        return usuarios
 
 
 
@@ -109,7 +111,8 @@ class Conector:
     #Metodo para modificar un Usuario.
     def modificar_usuario(self, email, nuevo_nombre, nueva_ciudad, nuevo_email, nueva_contrasena):
         sql = "UPDATE usuario SET nombre= %s, ciudad= %s, email= %s, contrasena= %s" 
-        valores = (nuevo_nombre, nueva_ciudad, nuevo_email, nueva_contrasena)
+        contrasena_hasheada = self.hash_password(nueva_contrasena)
+        valores = (nuevo_nombre, nueva_ciudad, nuevo_email, contrasena_hasheada)
         self.cursor.execute(sql, valores)
         self.conn.commit()
         return self.cursor.rowcount > 0
@@ -118,7 +121,7 @@ class Conector:
 
     # Metodo para eliminar un Usuario
     def eliminar_usuario(self, email):
-        self.cursor.execute("DELETE FROM usuario WHERE email = %s", (email))
+        self.cursor.execute(f"DELETE FROM usuario WHERE email = {email}")
         self.conn.commit()
         return self.cursor.rowcount > 0
 
@@ -146,20 +149,17 @@ conexion = Conector(
 
 
 
-# Ruta para la página de inicio
-@app.route('/')
-def index():
-    return render_template('/index.html')
+
 
     
-# Metodo para listar Usuarios
+# Endpoint para listar Usuarios
 @app.route("/usuario", methods=["GET"])
 def listar_usuarios():
     usuarios = conexion.listar_usuarios()
     return jsonify(usuarios)
 
 
-# Metodo para buscar un Usuario por su Id
+# Endpoint para mostrar un Usuario por su email
 @app.route("/usuario/<string:email>", methods=["GET"])
 def mostrar_usuario(email):
     usuario = conexion.consultar_usuario(email)
@@ -170,16 +170,16 @@ def mostrar_usuario(email):
 
 
 
-# Metodo para crear un nuevo Usuario
+# Endpoint para crear un nuevo Usuario
 @app.route("/usuario", methods=["POST"])
 def nuevo_usuario():
     # Levanta los datos del formulario
-    nombre = request.form.get('nombre')
-    ciudad = request.form.get('ciudad')
-    email = request.form.get('email')
-    contrasena = request.form.get('contrasena')
-    confirmarContrasena = request.form.get('confirmarContrasena')
-    print(fnombre)
+    nombre = request.form['nombre']
+    ciudad = request.form['ciudad']
+    email = request.form['email']
+    contrasena = request.form['contrasena']
+    confirmarContrasena = request.form['confirmarContrasena']
+    
 
     if contrasena != confirmarContrasena:
         return jsonify({"mensaje": "Las contraseñas no coinciden"}), 400
