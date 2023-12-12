@@ -17,11 +17,11 @@ const app = Vue.createApp({
       email: '',
       contrasena: '',
       repetirContrasena: '',
-      mostrarDatosProducto: false,
+      mostrarDatosUsuario: false,
     };
   },
   methods: {
-    obtenerUsuarioo() {
+    obtenerUsuario() {
       fetch(URL + 'usuario/' + this.email)
         .then(response => {
           if (response.ok) {
@@ -38,7 +38,7 @@ const app = Vue.createApp({
           this.ciudad = data.ciudad;
           this.email = data.email;
           this.contrasena = data.contrasena;
-          this.mostrarDatosProducto = true;
+          this.mostrarDatosUsuario = true;
         })
         .catch(error => {
           console.log(error);
@@ -92,7 +92,7 @@ const app = Vue.createApp({
       this.ciudad = '';
       this.email = '';
       this.contrasena = '';
-      this.mostrarDatosProducto = false;
+      this.mostrarDatosUsuario = false;
 
 
     }

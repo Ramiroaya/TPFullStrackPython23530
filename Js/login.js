@@ -1,5 +1,5 @@
 
-const URL = "https://ayacodoacodo.pythonanywhere.com";
+const URL = "https://ayacodoacodo.pythonanywhere.com/";
 
 
 // Función que chequea el usuario y contraseña ingresados en el array de registros.

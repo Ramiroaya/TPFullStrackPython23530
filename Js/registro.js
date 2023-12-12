@@ -84,11 +84,11 @@ document.addEventListener("DOMContentLoaded", function(){
     event.preventDefault(); // Evita el comportamiento predeterminado del formulario
 
     // Obtén los valores de los campos de entrada
-    const userName = document.getElementById("userName").value;
+    const nombre = document.getElementById("userName").value;
     const ciudad = document.getElementById("ciudad").value;
     const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("confirmPassword").value;
+    const contrasena = document.getElementById("password").value;
+    const confirmarContrasena = document.getElementById("confirmPassword").value;
 
     // Verifica que el campo Usuario sea obligatorio
     if (userName.trim() === "") {
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function(){
       alert("Las contraseñas no coinciden. Inténtalo de nuevo.");
     } else {
       // Agrega el registro al array
-      agregarRegistro(userName, ciudad, email, password);
+      agregarRegistro(nombre, ciudad, email, contrasena);
       // Almacena los registros en el Local Storage
       localStorage.setItem('registros', JSON.stringify(registros));
       console.log(registros);
