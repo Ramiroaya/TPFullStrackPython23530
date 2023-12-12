@@ -20,7 +20,7 @@ const app = Vue.createApp({
 
                     tabla
 
-                    this.productos = data;
+                    this.usuarios = data;
                 })
                 .catch(error => {
                     console.log('Error:', error);
