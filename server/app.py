@@ -3,7 +3,7 @@ from flask_bcrypt import Bcrypt
 
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
-import mysql.connector
+import mysql.connector 
 
 import os
 import time
@@ -17,15 +17,19 @@ class Conector:
         self.conn = mysql.connector.connect(
             host=host,
             user=user,
-            password=password
+            password=password,
+            database=database
         )
+        self.cursor = self.conn.cursor()
+
         self.bcrypt = Bcrypt(app)
 
-        self.cursor = self.conn.cursor()
+        
 
         try:
             self.cursor.execute(f"USE {database}")
         except mysql.connector.Error as err:
+            print(f"Error de conexión a la base de datos: {err}")
             # Si la base de datos no existe, la creamos
             if err.errno == mysql.connector.errorcode.ER_BAD_DB_ERROR:
                 self.cursor.execute(f"CREATE DATABASE {database}")
@@ -52,28 +56,28 @@ class Conector:
      #Metodo para agregar un Usuario.
     def agregar_usuario(self, nombre, ciudad, email, contrasena):
 
-        self.cursor.execute(f"SELECT * FROM usuario WHERE email = {email}")
+        self.cursor.execute("SELECT * FROM usuario WHERE email = %s", (email,))
         usuario_existe = self.cursor.fetchone()
         if usuario_existe:
             return False
         contrasena_hasheada = self.hash_password(contrasena)
         sql = "INSERT INTO usuario (nombre, ciudad, email, contrasena) VALUES (%s, %s, %s, %s)"
-        valores = (nombre, ciudad, email, contrasena_hasheada)
-        self.cursor.execute(sql,valores)
+        valores=(nombre, ciudad, email, contrasena_hasheada)
+        self.cursor.execute(sql, valores)
         self.conn.commit()
         return True
 
 
     #Metodo para autenticar Usuario.
     def autenticar_usuario(self, email, contrasena):
-        self.cursor.execute("SELECT * FROM usuario WHERE email = %s AND contrasena = %s", (email, contrasena))
+        self.cursor.execute("SELECT * FROM usuario WHERE email = %s AND contrasena = %s", (email, contrasena,))
         usuario = self.cursor.fetchone()
         return usuario
 
 
     #Metodo para consultar un Usuario por su Id.
     def consultar_usuario(self, email):
-        self.cursor.execute(f"SELECT * FROM usuario WHERE email = {email}")
+        self.cursor.execute("SELECT * FROM usuario WHERE email = %s" , (email,))
         return self.cursor.fetchone()
 
 
@@ -110,9 +114,9 @@ class Conector:
 
     #Metodo para modificar un Usuario.
     def modificar_usuario(self, email, nuevo_nombre, nueva_ciudad, nuevo_email, nueva_contrasena):
-        sql = "UPDATE usuario SET nombre= %s, ciudad= %s, email= %s, contrasena= %s" 
+        sql = "UPDATE usuario SET nombre= %s, ciudad= %s, email= %s, contrasena= %s WHERE email= %s"  
         contrasena_hasheada = self.hash_password(nueva_contrasena)
-        valores = (nuevo_nombre, nueva_ciudad, nuevo_email, contrasena_hasheada)
+        valores = (nuevo_nombre, nueva_ciudad, nuevo_email, contrasena_hasheada, email)
         self.cursor.execute(sql, valores)
         self.conn.commit()
         return self.cursor.rowcount > 0
@@ -121,7 +125,8 @@ class Conector:
 
     # Metodo para eliminar un Usuario
     def eliminar_usuario(self, email):
-        self.cursor.execute(f"DELETE FROM usuario WHERE email = {email}")
+
+        self.cursor.execute("DELETE FROM usuario WHERE email = %s", (email,))
         self.conn.commit()
         return self.cursor.rowcount > 0
 
@@ -139,12 +144,7 @@ class Conector:
 #--------------------------------------------------------------------
 # Creamos una instancia de Conector
 #conexion = Conector(host='localhost', user='root', password='root', database='cryptoMercado')  
-conexion = Conector(
-    host='ayacodoacodo.mysql.pythonanywhere-services.com',
-    user='ayacodoacodo',
-    password='crypto2023',
-    database='ayacodoacodo$cryptoMercado'
-)  
+conexion = Conector(host='ayacodoacodo.mysql.pythonanywhere-services.com', user='ayacodoacodo', password='Error2023', database='ayacodoacodo$cryptoMercado')  
 
 
 
@@ -209,8 +209,8 @@ def login():
 
 
 
-# Endpoint para modificar un Usuario
-@app.route('/usuario/<string:email>', methods=['PUT'])
+# Endpoint para modificar un Usuario por el email
+@app.route("/usuario/<string:email>", methods=["PUT"])
 def modificar_usuario(email):
     # Recojo los datos del Formulario
     nuevo_nombre = request.form.get("nombre")

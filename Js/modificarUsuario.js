@@ -1,6 +1,5 @@
 const URL = "https://ayacodoacodo.pythonanywhere.com/";
 
-
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 
@@ -20,10 +19,13 @@ const app = Vue.createApp({
       mostrarDatosUsuario: false,
     };
   },
+
   methods: {
     obtenerUsuario() {
+
       fetch(URL + 'usuario/' + this.email)
         .then(response => {
+          console.log(response); 
           if (response.ok) {
             return response.json()
           } else {
@@ -34,6 +36,7 @@ const app = Vue.createApp({
           }
         })
         .then(data => {
+          console.log(data); 
           this.nombre = data.nombre;
           this.ciudad = data.ciudad;
           this.email = data.email;
@@ -53,6 +56,8 @@ const app = Vue.createApp({
       URL temporal para la vista previa
     },*/
     guardarCambios() {
+      this.$refs.guardarBoton.disabled = true;
+
       const formData = new FormData();
       formData.append('nombre', this.nombre);
       formData.append('ciudad', this.ciudad);
@@ -72,6 +77,7 @@ const app = Vue.createApp({
           //Si la respuesta es exitosa, utilizamos response.json() para parsear la respuesta en formato JSON.
           if (response.ok) {
             return response.json()
+            
           } else {
             //Si la respuesta es un error, lanzamos una excepción.
 
@@ -85,7 +91,7 @@ const app = Vue.createApp({
         .catch(error => {
           console.error('Error:', error);
           alert('Error al actualizar el usuario.');
-        });
+        })
     },
     limpiarFormulario() {
       this.nombre = '';
@@ -93,10 +99,9 @@ const app = Vue.createApp({
       this.email = '';
       this.contrasena = '';
       this.mostrarDatosUsuario = false;
-
-
     }
   }
 });
+
 app.mount('#app');
 
