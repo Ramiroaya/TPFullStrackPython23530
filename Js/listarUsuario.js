@@ -31,7 +31,7 @@ fetch(URL + 'usuario')
     })
     .catch(function (error) {
         // En caso de error
-        alert('Error al agregar el usuario.');
+        alert('Error al obtener los usuarios.');
         console.error('Error:', error);
     })
 

@@ -2,6 +2,7 @@ const URL = "https://ayacodoacodo.pythonanywhere.com/";
 
 document.getElementById('registration-form').addEventListener('submit', async function (event) {
   event.preventDefault();
+
   var contrasena = document.getElementById('contrasena').value;
   var confirmarContrasena = document.getElementById('confirmarContrasena').value;
 
@@ -14,9 +15,9 @@ document.getElementById('registration-form').addEventListener('submit', async fu
   formData.append('nombre', document.getElementById('userName').value);
   formData.append('ciudad', document.getElementById('ciudad').value);
   formData.append('email', document.getElementById('email').value);
-  formData.append('contrasena', document.getElementById('password').value);
-  formData.append('confirmarContrasena', document.getElementById('confirmPassword').value);
-  console.log(nombre);
+  formData.append('contrasena', contrasena);
+  formData.append('confirmarContrasena', confirmarContrasena);
+
 
    // Realizamos la solicitud POST al servidor
    fetch(URL + 'usuario', {
@@ -47,11 +48,11 @@ document.getElementById('registration-form').addEventListener('submit', async fu
     })
    .finally(function () {
     // Restablece los valores del formulario
-    document.getElementById('userName').value = "";
+    document.getElementById('nombre').value = "";
     document.getElementById('ciudad').value = "";
     document.getElementById('email').value = "";
-    document.getElementById('password').value = "";
-    document.getElementById('confirmPassword').value = "";
+    document.getElementById('contrasena').value = "";
+    document.getElementById('confirmarContrasena').value = "";
   })
 });
 

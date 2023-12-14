@@ -26,7 +26,7 @@ const app = Vue.createApp({
                 });
         },
         eliminarUsuario(email) {
-            if (confirm('¿Estás seguro de que quieres eliminar este usuario ? ')) {
+            if (confirm(`¿Estás seguro de que quieres eliminar a ${email} ? `)) {
 
                 fetch(URL + `usuario/${email}`, { method: 'DELETE' })
                     .then(response => {
@@ -40,7 +40,7 @@ const app = Vue.createApp({
                     });
             }
         }
-    },
+    }, 
     mounted() {
         //Al cargar la página, obtenemos la lista de productos
         this.obtenerUsuarios();
